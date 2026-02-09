@@ -607,11 +607,25 @@
 
     // ─── REAL-TIME LISTENER ──────────────────────────────────────
     function listenToExpenses() {
+        // Timeout: if Firestore hasn't responded in 8s, show empty state
+        const timeout = setTimeout(() => {
+            if (expenses.length === 0) {
+                document.getElementById('balances-list').innerHTML = '<div class="empty">Could not connect to database</div>';
+                document.getElementById('settle-list').innerHTML = '<div class="empty">Could not connect to database</div>';
+                document.getElementById('expenses-list').innerHTML = '<div class="empty">Could not connect to database</div>';
+            }
+        }, 8000);
+
         unsubscribe = expensesRef.orderBy('createdAt', 'desc').onSnapshot(snap => {
+            clearTimeout(timeout);
             expenses = snap.docs.map(d => ({ id: d.id, ...d.data() }));
             renderAll();
         }, err => {
+            clearTimeout(timeout);
             console.error('Firestore listen error:', err);
+            document.getElementById('balances-list').innerHTML = '<div class="empty">Error: ' + esc(err.message) + '</div>';
+            document.getElementById('settle-list').innerHTML = '<div class="empty">Error: ' + esc(err.message) + '</div>';
+            document.getElementById('expenses-list').innerHTML = '<div class="empty">Error: ' + esc(err.message) + '</div>';
         });
     }
 
