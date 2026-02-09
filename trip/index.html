@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Expenses</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e2e8f0;
+            background: #0f172a;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 300;
+            font-size: 1.8rem;
+            letter-spacing: -0.025em;
+            color: #f8fafc;
+            padding: 1.5rem 0 0.5rem;
+        }
+
+        /* Glass card */
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* Form elements */
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 0.3rem;
+        }
+
+        select, input[type="text"], input[type="number"], input[type="password"] {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 6px;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            font-family: inherit;
+            margin-bottom: 0.75rem;
+            -webkit-appearance: none;
+        }
+
+        select { cursor: pointer; }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #38bdf8;
+            color: #0f172a;
+            width: 100%;
+        }
+
+        .btn-primary:hover { background: #7dd3fc; }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-danger {
+            background: transparent;
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            padding: 0.35rem 0.75rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-danger:hover {
+            background: rgba(248, 113, 113, 0.1);
+            border-color: #f87171;
+        }
+
+        /* Split toggles */
+        .split-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .split-toggle {
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-family: inherit;
+            cursor: pointer;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(15, 23, 42, 0.6);
+            color: #94a3b8;
+            transition: all 0.15s;
+            user-select: none;
+        }
+
+        .split-toggle.active {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        .select-link {
+            font-size: 0.8rem;
+            color: #38bdf8;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        .select-link:hover { text-decoration: underline; }
+
+        /* Balances */
+        .balance-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+        }
+
+        .balance-row:last-child { border-bottom: none; }
+
+        .balance-name { font-size: 0.9rem; }
+
+        .balance-amount {
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .positive { color: #4ade80; }
+        .negative { color: #f87171; }
+        .zero { color: #64748b; }
+
+        /* Settlements */
+        .settle-row {
+            padding: 0.5rem 0;
+            font-size: 0.88rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+            color: #cbd5e1;
+        }
+
+        .settle-row:last-child { border-bottom: none; }
+
+        .settle-arrow { color: #38bdf8; margin: 0 0.3rem; }
+
+        .settle-amount { color: #f8fafc; font-weight: 500; }
+
+        /* Expense list */
+        .expense-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+        }
+
+        .expense-item:last-child { border-bottom: none; }
+
+        .expense-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .expense-desc {
+            font-size: 0.95rem;
+            color: #f8fafc;
+            flex: 1;
+        }
+
+        .expense-amount {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #f8fafc;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .expense-meta {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 0.2rem;
+        }
+
+        .expense-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.4rem;
+        }
+
+        /* Password overlay */
+        #auth-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .auth-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 360px;
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-weight: 300;
+            font-size: 1.4rem;
+            color: #f8fafc;
+            margin-bottom: 0.3rem;
+        }
+
+        .auth-card p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 1.25rem;
+        }
+
+        .auth-card input {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .auth-error {
+            color: #f87171;
+            font-size: 0.82rem;
+            margin-top: -0.5rem;
+            margin-bottom: 0.75rem;
+            display: none;
+        }
+
+        /* Empty state */
+        .empty {
+            text-align: center;
+            color: #475569;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Confirm dialog */
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+        }
+
+        .confirm-box {
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+        }
+
+        .confirm-box p {
+            margin-bottom: 1rem;
+            font-size: 0.92rem;
+        }
+
+        .confirm-btns {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .confirm-btns .btn {
+            flex: 1;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover { border-color: rgba(148, 163, 184, 0.4); }
+
+        .btn-confirm-delete {
+            background: #f87171;
+            color: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-confirm-delete:hover { background: #fca5a5; }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            color: #64748b;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Total bar */
+        .total-bar {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.82rem;
+            padding: 0.5rem 0 0;
+        }
+
+        .total-bar span {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Password overlay -->
+    <div id="auth-overlay">
+        <div class="auth-card">
+            <h2>Trip Expenses</h2>
+            <p>Enter the shared password</p>
+            <input type="password" id="password-input" placeholder="Password" autocomplete="off">
+            <div class="auth-error" id="auth-error">Wrong password</div>
+            <button class="btn btn-primary" id="auth-btn">Enter</button>
+        </div>
+    </div>
+
+    <!-- Main app (hidden until auth) -->
+    <div id="app" style="display:none;">
+        <div class="container">
+            <h1>Trip Expenses</h1>
+
+            <!-- Add Expense -->
+            <div class="card">
+                <h2>Add Expense</h2>
+                <label for="payer">Paid by</label>
+                <select id="payer"></select>
+
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="0.00" min="0" step="0.01">
+
+                <label for="description">Description</label>
+                <input type="text" id="description" placeholder="What was it for?">
+
+                <label>Split among</label>
+                <div class="split-grid" id="split-grid"></div>
+                <span class="select-link" id="toggle-all">Deselect all</span>
+                <br><br>
+                <button class="btn btn-primary" id="add-btn">Add Expense</button>
+            </div>
+
+            <!-- Balances -->
+            <div class="card">
+                <h2>Balances</h2>
+                <div id="balances-list"><div class="loading">Loading...</div></div>
+                <div class="total-bar" id="total-bar"></div>
+            </div>
+
+            <!-- Settle Up -->
+            <div class="card">
+                <h2>Settle Up</h2>
+                <div id="settle-list"><div class="loading">Loading...</div></div>
+            </div>
+
+            <!-- Expenses -->
+            <div class="card">
+                <h2>Expenses</h2>
+                <div id="expenses-list"><div class="loading">Loading...</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm delete dialog (injected dynamically) -->
+
+    <!-- Firebase SDK (compat for simplicity) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+    <script>
+    // ─── CONFIG ──────────────────────────────────────────────────
+    const PEOPLE = ['Akos', 'Mate', 'Peter Sz.', 'Jon', 'Kevin', 'Miklos', 'Rauno', 'Viktor', 'Peter G.'];
+    const CURRENCY = '\u20ac';
+
+    // SHA-256 hex of the shared password (generate with: echo -n "yourpassword" | shasum -a 256)
+    const PASSWORD_HASH = '08dcde391c03a55a45f823c01f62d2bbf2b28af3b560444a320e017ea2f60847'; // "shipit"
+
+    // ─── PASTE YOUR FIREBASE CONFIG BELOW ────────────────────────
+    const firebaseConfig = {
+        apiKey: "AIzaSyCVwRlvqaIyGHSS6Bmh8vJJ3rvCYIdxB3w",
+        authDomain: "splitter-e9919.firebaseapp.com",
+        projectId: "splitter-e9919",
+        storageBucket: "splitter-e9919.firebasestorage.app",
+        messagingSenderId: "961613871730",
+        appId: "1:961613871730:web:37d513ebf1a5992bdee0eb"
+    };
+    // ─────────────────────────────────────────────────────────────
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const expensesRef = db.collection('trips').doc('default').collection('expenses');
+
+    // ─── AUTH ────────────────────────────────────────────────────
+    const AUTH_KEY = 'trip_authed';
+
+    async function sha256(text) {
+        const data = new TextEncoder().encode(text);
+        const buf = await crypto.subtle.digest('SHA-256', data);
+        return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function checkPassword(pw) {
+        const hash = await sha256(pw);
+        return hash === PASSWORD_HASH;
+    }
+
+    function isAuthed() {
+        return sessionStorage.getItem(AUTH_KEY) === 'true';
+    }
+
+    function showApp() {
+        document.getElementById('auth-overlay').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        initApp();
+    }
+
+    // Auth UI
+    const pwInput = document.getElementById('password-input');
+    const authBtn = document.getElementById('auth-btn');
+    const authError = document.getElementById('auth-error');
+
+    async function handleAuth() {
+        const pw = pwInput.value;
+        if (!pw) return;
+        authBtn.disabled = true;
+        const ok = await checkPassword(pw);
+        authBtn.disabled = false;
+        if (ok) {
+            sessionStorage.setItem(AUTH_KEY, 'true');
+            showApp();
+        } else {
+            authError.style.display = 'block';
+            pwInput.value = '';
+            pwInput.focus();
+        }
+    }
+
+    authBtn.addEventListener('click', handleAuth);
+    pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') handleAuth(); });
+
+    if (isAuthed()) {
+        showApp();
+    } else {
+        pwInput.focus();
+    }
+
+    // ─── APP ─────────────────────────────────────────────────────
+    let expenses = [];
+    let unsubscribe = null;
+
+    function initApp() {
+        buildPayerDropdown();
+        buildSplitGrid();
+        listenToExpenses();
+    }
+
+    // Payer dropdown
+    function buildPayerDropdown() {
+        const sel = document.getElementById('payer');
+        PEOPLE.forEach(name => {
+            const opt = document.createElement('option');
+            opt.value = name;
+            opt.textContent = name;
+            sel.appendChild(opt);
+        });
+    }
+
+    // Split toggle grid
+    const splitState = {};
+    PEOPLE.forEach(n => splitState[n] = true);
+
+    function buildSplitGrid() {
+        const grid = document.getElementById('split-grid');
+        PEOPLE.forEach(name => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'split-toggle active';
+            btn.textContent = name;
+            btn.dataset.name = name;
+            btn.addEventListener('click', () => {
+                splitState[name] = !splitState[name];
+                btn.classList.toggle('active', splitState[name]);
+                updateToggleAllLabel();
+            });
+            grid.appendChild(btn);
+        });
+    }
+
+    function updateToggleAllLabel() {
+        const allOn = PEOPLE.every(n => splitState[n]);
+        document.getElementById('toggle-all').textContent = allOn ? 'Deselect all' : 'Select all';
+    }
+
+    document.getElementById('toggle-all').addEventListener('click', () => {
+        const allOn = PEOPLE.every(n => splitState[n]);
+        const newVal = !allOn;
+        PEOPLE.forEach(n => splitState[n] = newVal);
+        document.querySelectorAll('.split-toggle').forEach(b => b.classList.toggle('active', newVal));
+        updateToggleAllLabel();
+    });
+
+    // Add expense
+    document.getElementById('add-btn').addEventListener('click', async () => {
+        const payer = document.getElementById('payer').value;
+        const amount = parseFloat(document.getElementById('amount').value);
+        const desc = document.getElementById('description').value.trim();
+        const splitAmong = PEOPLE.filter(n => splitState[n]);
+
+        if (!payer || !amount || amount <= 0 || !desc || splitAmong.length === 0) {
+            return;
+        }
+
+        const btn = document.getElementById('add-btn');
+        btn.disabled = true;
+        try {
+            await expensesRef.add({
+                paidBy: payer,
+                amount: Math.round(amount * 100) / 100,
+                description: desc,
+                splitAmong: splitAmong,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            // Reset form
+            document.getElementById('amount').value = '';
+            document.getElementById('description').value = '';
+            PEOPLE.forEach(n => splitState[n] = true);
+            document.querySelectorAll('.split-toggle').forEach(b => b.classList.add('active'));
+            updateToggleAllLabel();
+        } catch (err) {
+            console.error('Error adding expense:', err);
+        }
+        btn.disabled = false;
+    });
+
+    // ─── REAL-TIME LISTENER ──────────────────────────────────────
+    function listenToExpenses() {
+        unsubscribe = expensesRef.orderBy('createdAt', 'desc').onSnapshot(snap => {
+            expenses = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+            renderAll();
+        }, err => {
+            console.error('Firestore listen error:', err);
+        });
+    }
+
+    // ─── RENDER ──────────────────────────────────────────────────
+    function renderAll() {
+        renderBalances();
+        renderSettlements();
+        renderExpenses();
+    }
+
+    // Balances
+    function computeBalances() {
+        const bal = {};
+        PEOPLE.forEach(n => bal[n] = 0);
+        expenses.forEach(exp => {
+            const share = exp.amount / exp.splitAmong.length;
+            bal[exp.paidBy] = (bal[exp.paidBy] || 0) + exp.amount;
+            exp.splitAmong.forEach(name => {
+                bal[name] = (bal[name] || 0) - share;
+            });
+        });
+        return bal;
+    }
+
+    function renderBalances() {
+        const bal = computeBalances();
+        const container = document.getElementById('balances-list');
+        const totalBar = document.getElementById('total-bar');
+
+        if (expenses.length === 0) {
+            container.innerHTML = '<div class="empty">No expenses yet</div>';
+            totalBar.innerHTML = '';
+            return;
+        }
+
+        const sorted = [...PEOPLE].sort((a, b) => bal[b] - bal[a]);
+        container.innerHTML = sorted.map(name => {
+            const v = bal[name];
+            const cls = v > 0.005 ? 'positive' : v < -0.005 ? 'negative' : 'zero';
+            const sign = v > 0.005 ? '+' : '';
+            return `<div class="balance-row">
+                <span class="balance-name">${esc(name)}</span>
+                <span class="balance-amount ${cls}">${sign}${CURRENCY}${v.toFixed(2)}</span>
+            </div>`;
+        }).join('');
+
+        const total = expenses.reduce((s, e) => s + e.amount, 0);
+        totalBar.innerHTML = `Total spent: <span>${CURRENCY}${total.toFixed(2)}</span>`;
+    }
+
+    // Settlements (greedy)
+    function computeSettlements() {
+        const bal = computeBalances();
+        const debtors = []; // owe money (negative balance)
+        const creditors = []; // are owed money (positive balance)
+
+        PEOPLE.forEach(name => {
+            const v = bal[name];
+            if (v < -0.005) debtors.push({ name, amount: -v });
+            else if (v > 0.005) creditors.push({ name, amount: v });
+        });
+
+        debtors.sort((a, b) => b.amount - a.amount);
+        creditors.sort((a, b) => b.amount - a.amount);
+
+        const txns = [];
+        let di = 0, ci = 0;
+        while (di < debtors.length && ci < creditors.length) {
+            const d = debtors[di];
+            const c = creditors[ci];
+            const settle = Math.min(d.amount, c.amount);
+            txns.push({ from: d.name, to: c.name, amount: settle });
+            d.amount -= settle;
+            c.amount -= settle;
+            if (d.amount < 0.005) di++;
+            if (c.amount < 0.005) ci++;
+        }
+        return txns;
+    }
+
+    function renderSettlements() {
+        const container = document.getElementById('settle-list');
+
+        if (expenses.length === 0) {
+            container.innerHTML = '<div class="empty">No expenses yet</div>';
+            return;
+        }
+
+        const txns = computeSettlements();
+        if (txns.length === 0) {
+            container.innerHTML = '<div class="empty">All settled up!</div>';
+            return;
+        }
+
+        container.innerHTML = txns.map(t =>
+            `<div class="settle-row">
+                ${esc(t.from)} <span class="settle-arrow">&rarr;</span> ${esc(t.to)}: <span class="settle-amount">${CURRENCY}${t.amount.toFixed(2)}</span>
+            </div>`
+        ).join('');
+    }
+
+    // Expenses list
+    function renderExpenses() {
+        const container = document.getElementById('expenses-list');
+
+        if (expenses.length === 0) {
+            container.innerHTML = '<div class="empty">No expenses yet</div>';
+            return;
+        }
+
+        container.innerHTML = expenses.map(exp => {
+            const date = exp.createdAt ? new Date(exp.createdAt.seconds * 1000) : null;
+            const dateStr = date ? date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '';
+            const splitLabel = exp.splitAmong.length === PEOPLE.length
+                ? 'everyone'
+                : exp.splitAmong.join(', ');
+
+            return `<div class="expense-item">
+                <div class="expense-top">
+                    <div>
+                        <div class="expense-desc">${esc(exp.description)}</div>
+                        <div class="expense-meta">${esc(exp.paidBy)} paid &middot; split: ${esc(splitLabel)} &middot; ${dateStr}</div>
+                    </div>
+                    <div class="expense-amount">${CURRENCY}${exp.amount.toFixed(2)}</div>
+                </div>
+                <div class="expense-actions">
+                    <button class="btn btn-danger" onclick="confirmDelete('${exp.id}', '${esc(exp.description)}')">Delete</button>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    // ─── DELETE ───────────────────────────────────────────────────
+    function confirmDelete(id, desc) {
+        const overlay = document.createElement('div');
+        overlay.className = 'confirm-overlay';
+        overlay.innerHTML = `
+            <div class="confirm-box">
+                <p>Delete "${desc}"?</p>
+                <div class="confirm-btns">
+                    <button class="btn-ghost" id="cancel-del">Cancel</button>
+                    <button class="btn-confirm-delete" id="confirm-del">Delete</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        overlay.querySelector('#cancel-del').addEventListener('click', () => overlay.remove());
+        overlay.querySelector('#confirm-del').addEventListener('click', async () => {
+            try { await expensesRef.doc(id).delete(); } catch (e) { console.error(e); }
+            overlay.remove();
+        });
+        overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+    }
+
+    // ─── UTIL ────────────────────────────────────────────────────
+    function esc(str) {
+        const d = document.createElement('div');
+        d.textContent = str;
+        return d.innerHTML;
+    }
+    </script>
+</body>
+</html>
