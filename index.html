@@ -13,7 +13,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akos Komuves</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#F5F2E9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: dark)">
+    <script>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <style>
+        :root {
+            --bg-primary: #F5F2E9;
+            --bg-secondary: #EDE9DF;
+            --text-primary: #2C2C2C;
+            --text-heading: #1A1A1A;
+            --text-secondary: #8B7D6B;
+            --accent: #2D5A47;
+            --border: #D9D3C7;
+            --card-bg: #FFFFFF;
+            --badge-filter: none;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Inter', system-ui, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #242420;
+            --text-primary: #E8E4DC;
+            --text-heading: #F2EFE8;
+            --text-secondary: #A09888;
+            --accent: #4A9A7A;
+            --border: #3A3830;
+            --card-bg: #222220;
+            --badge-filter: invert(1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,300 +60,357 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #e2e8f0;
-            background: #0f172a;
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header */
-        header {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-            padding: 3rem 0;
-            text-align: center;
-            color: #f8fafc;
-        }
-
-        .cursor {
-            display: inline-block;
-            background-color: #00ff00;
-            width: 20px;
-            height: 3px;
-            margin-bottom: 0px;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .header-content h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        .header-content p {
-            font-size: 1.1rem;
-            opacity: 0.7;
-            max-width: 500px;
-            margin: 0 auto;
-            font-weight: 300;
-        }
-
-        .header-say-hi {
-            margin-top: 1rem;
-            font-size: 1rem;
-            color: #f8fafc;
-            opacity: 0.8;
-        }
-
-        .header-say-hi a {
-            color: #38bdf8;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .header-say-hi a:hover {
-            text-decoration: underline;
-        }
-
-        /* Main Content */
-        main {
-            padding: 4rem 0;
-        }
-
-        .products-section {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #f8fafc;
-            margin-bottom: 3rem;
-            letter-spacing: -0.025em;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: rgba(148, 163, 184, 0.2);
-        }
-
-        .product-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(148, 163, 184, 0.3);
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        .product-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1.5rem;
-            background: rgba(148, 163, 184, 0.1);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 4px;
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: #94a3b8;
+            z-index: 100;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
         }
 
-        .product-title {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            color: #f8fafc;
+        .theme-toggle:hover {
+            border-color: var(--accent);
         }
 
-        .product-description {
-            color: #94a3b8;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            flex-grow: 1;
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
         }
 
-        .product-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .theme-toggle:hover svg {
+            color: var(--accent);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1.25rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
-        .btn-primary {
-            background: #f8fafc;
-            color: #0f172a;
-        }
-
-        .btn-primary:hover {
-            background: #e2e8f0;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #94a3b8;
-            border: 1px solid rgba(148, 163, 184, 0.3);
-        }
-
-        .btn-secondary:hover {
-            border-color: rgba(148, 163, 184, 0.5);
-            color: #e2e8f0;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(148, 163, 184, 0.1);
-            padding: 2rem 0;
+        /* Header */
+        header {
+            padding: 6rem 0 4rem;
             text-align: center;
-            color: #94a3b8;
-            margin-top: 4rem;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 3.2rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            letter-spacing: 0.01em;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 1rem;
+            font-weight: 400;
+        }
+
+        .contact-line {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-line a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-line a:hover {
+            text-decoration: underline;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 1.25rem;
+            margin-top: 0.5rem;
         }
 
         .social-link {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background: rgba(148, 163, 184, 0.1);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #94a3b8;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .social-link:hover {
-            background: rgba(148, 163, 184, 0.2);
-            border-color: rgba(148, 163, 184, 0.3);
-            color: #e2e8f0;
+            color: var(--accent);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-card {
-                padding: 1.5rem;
-            }
+        .social-link svg {
+            width: 22px;
+            height: 22px;
         }
 
-        /* Animations */
-        .product-card {
-            animation: fadeInUp 0.6s ease-out;
+        /* Separator */
+        .separator {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            max-width: 120px;
+            margin: 0 auto 4rem;
         }
 
-        .product-card:nth-child(2) {
-            animation-delay: 0.2s;
+        /* Main */
+        main {
+            padding: 0 0 4rem;
         }
 
-        @keyframes fadeInUp {
+        .products-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .products-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .product-item {
+            display: flex;
+            gap: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent);
+        }
+
+        [data-theme="dark"] .product-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-item:nth-child(1) { animation-delay: 0s; }
+        .product-item:nth-child(2) { animation-delay: 0.08s; }
+        .product-item:nth-child(3) { animation-delay: 0.16s; }
+        .product-item:nth-child(4) { animation-delay: 0.24s; }
+        .product-item:nth-child(5) { animation-delay: 0.32s; }
+        .product-item:nth-child(6) { animation-delay: 0.40s; }
+        .product-item:nth-child(7) { animation-delay: 0.48s; }
+        .product-item:nth-child(8) { animation-delay: 0.56s; }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(12px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        .product-icon-app {
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 0.25rem;
+        }
+
+        .product-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .product-links {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .badge-appstore img {
+            width: 122px;
+            height: 41px;
+            vertical-align: middle;
+            object-fit: contain;
+            filter: var(--badge-filter);
+            transition: filter 0.3s ease;
+        }
+
+        .badge-google img {
+            height: 60px;
+            margin: -10px 0;
+            vertical-align: middle;
+            object-fit: contain;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            background: transparent;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            header {
+                padding: 5rem 0 3rem;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+            }
+
+            .product-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .product-links {
+                justify-content: center;
+            }
+
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M17.72 17.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M17.72 6.28l1.06-1.06"/>
+            <circle cx="12" cy="12" r="4"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0 1 12 21.75 9.75 9.75 0 0 1 8.998 2.248 9.718 9.718 0 0 0 21.752 15.002z"/>
+        </svg>
+    </button>
+
     <header>
         <div class="container">
-            <div class="header-content">
-                <h1>Akos Komuves<span class="cursor"></span></h1>
-                <p>Product builder and engineer shipping apps across platforms. Experienced in the full app lifecycle — from development to store optimization, growth, and retention. Into surfing, motorbikes, permaculture, and tea ceremonies.</p>
-                <p class="header-say-hi">If you spotted the sticker, say hi or <a href="mailto:komuvesakos@icloud.com">let's talk</a>.</p>
-                <div class="social-links">
-                    <a href="mailto:komuvesakos@icloud.com" class="social-link">📧</a>
-                    <a href="https://x.com/AkosKomuves" class="social-link">🐦</a>
-                    <a href="https://github.com/akoskomuves" class="social-link">🐙</a>
-                    <a href="https://www.instagram.com/akos.komuves/" class="social-link">📷</a>
-                </div>
+            <h1>Akos Komuves</h1>
+            <p class="bio">Indie developer shipping apps across platforms. Into surfing, motorbikes, permaculture, and tea ceremonies.</p>
+            <p class="contact-line">If you spotted the sticker, say hi or <a href="mailto:komuvesakos@icloud.com">let's talk</a>.</p>
+            <div class="social-links">
+                <a href="mailto:komuvesakos@icloud.com" class="social-link" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.953 5.774a1.125 1.125 0 0 1-1.094 0L2.25 6.75"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/AkosKomuves" class="social-link" aria-label="X (Twitter)">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 3.75 10.1 12m0 0 5.4 8.25M10.1 12 19.5 3.75M10.1 12 4.5 20.25"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/akoskomuves" class="social-link" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/akos.komuves/" class="social-link" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <circle cx="12" cy="12" r="5"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
 
+    <hr class="separator">
+
     <main>
         <div class="container">
             <section class="products-section">
-                <h2 class="section-title">My Products</h2>
-                
-                <div class="products-grid">
-                    <div class="product-card">
+                <h2 class="section-title">Products</h2>
+
+                <div class="products-list">
+                    <div class="product-item">
                         <div class="product-icon-app">
                             <a href="https://apps.apple.com/us/app/fishing-spots-map-wikicatch/id6758548046?itscg=30200&itsct=apps_box_artwork&mttnsubad=6758548046" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
@@ -328,96 +424,104 @@
                             </svg>
                             </a>
                         </div>
-                        <h3 class="product-title">WikiCatch</h3>
-                        <p class="product-description">
-                            Discover over 1 million fishing spots worldwide. Interactive map with filterable water types, real-time weather and solunar data, a fish species database, and catch logging with photos. Navigate to any spot via Apple Maps, Google Maps, or Waze. Pro unlocks advanced weather and tidal forecasting.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://apps.apple.com/us/app/fishing-spots-map-wikicatch/id6758548046?itscg=30200&itsct=apps_box_badge&mttnsubad=6758548046" style="display: inline-block;">
-                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1770595200" alt="Download on the App Store" style="width: 122px; height: 41px; vertical-align: middle; object-fit: contain;" />
-                        </a>
+                        <div class="product-info">
+                            <h3 class="product-title">WikiCatch</h3>
+                            <p class="product-description">
+                                Discover over 1 million fishing spots worldwide. Interactive map with filterable water types, real-time weather and solunar data, a fish species database, and catch logging with photos. Navigate to any spot via Apple Maps, Google Maps, or Waze. Pro unlocks advanced weather and tidal forecasting.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://apps.apple.com/us/app/fishing-spots-map-wikicatch/id6758548046?itscg=30200&itsct=apps_box_badge&mttnsubad=6758548046" class="badge-appstore">
+                                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1770595200" alt="Download on the App Store" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
-                            <a href="https://apps.apple.com/us/app/note-hunter/id1584522362?itscg=30200&itsct=apps_box_artwork&mttnsubad=1584522362" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle; 
+                            <a href="https://apps.apple.com/us/app/note-hunter/id1584522362?itscg=30200&itsct=apps_box_artwork&mttnsubad=1584522362" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
-                              
+
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/32/e1/1932e142-8ad8-1777-566f-1b626ae6d188/AppIcon-0-1x_U007emarketing-0-8-0-85-220-0.png/540x540bb.jpg" alt="Note Hunter"
                                      style="width: 100%; height: 100%; object-fit: contain;
                                      mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
-                              
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.5 230.5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-sizing: border-box;">
                               <path fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-opacity=".1" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
                             </svg>
                             </a>
                         </div>
-                        <h3 class="product-title">Note Hunter</h3>
-                        <p class="product-description">
-                            Unlock your musical potential with advanced ear training. Master absolute and relative pitch through interactive interval training and innovative synergy features that assign unique colors to notes. Perfect for beginners and experienced musicians alike, with upcoming beat recognition training to decode rhythmic patterns.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://apps.apple.com/us/app/note-hunter/id1584522362?itscg=30200&itsct=apps_box_badge&mttnsubad=1584522362" style="display: inline-block;">
-                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1639353600" alt="Download on the App Store" style="width: 122px; height: 41px; vertical-align: middle; object-fit: contain;" />
-                        </a>
+                        <div class="product-info">
+                            <h3 class="product-title">Note Hunter</h3>
+                            <p class="product-description">
+                                Unlock your musical potential with advanced ear training. Master absolute and relative pitch through interactive interval training and innovative synergy features that assign unique colors to notes. Perfect for beginners and experienced musicians alike, with upcoming beat recognition training to decode rhythmic patterns.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://apps.apple.com/us/app/note-hunter/id1584522362?itscg=30200&itsct=apps_box_badge&mttnsubad=1584522362" class="badge-appstore">
+                                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1639353600" alt="Download on the App Store" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
-                            <a href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608?itscg=30200&itsct=apps_box_artwork&mttnsubad=6744599608" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle; 
+                            <a href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608?itscg=30200&itsct=apps_box_artwork&mttnsubad=6744599608" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
-                              
+
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/cc/3e/68cc3e43-5da5-d5d0-d008-b845c5a16517/AppIcon-0-1x_U007epad-0-1-85-220-0.png/540x540bb.jpg" alt="WikiBubbles: Snorkeling Spots"
                                      style="width: 100%; height: 100%; object-fit: contain;
                                      mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
-                              
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.5 230.5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-sizing: border-box;">
                               <path fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-opacity=".1" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
                             </svg>
                             </a>
                         </div>
-                        <h3 class="product-title">WikiBubbles</h3>
-                        <p class="product-description">
-                            Discover the underwater world with WikiBubbles - the ultimate discovery tool for divers and snorkelers. Explore detailed dive sites around the globe with comprehensive information about marine life, conditions, and local attractions. Log your dives and track your underwater adventures.
-                        </p>
-                        <div class="product-links" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                        <a href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608?itscg=30200&itsct=apps_box_badge&mttnsubad=6744599608" style="display: inline-block;">
-                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600" alt="Download on the App Store" style="width: 122px; height: 41px; vertical-align: middle; object-fit: contain;" />
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.familydog.wikibubbles" style="display: inline-block;">
-                        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height: 60px; margin: -10px 0; vertical-align: middle; object-fit: contain;" />
-                        </a>
+                        <div class="product-info">
+                            <h3 class="product-title">WikiBubbles</h3>
+                            <p class="product-description">
+                                Discover the underwater world with WikiBubbles - the ultimate discovery tool for divers and snorkelers. Explore detailed dive sites around the globe with comprehensive information about marine life, conditions, and local attractions. Log your dives and track your underwater adventures.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608?itscg=30200&itsct=apps_box_badge&mttnsubad=6744599608" class="badge-appstore">
+                                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1755129600" alt="Download on the App Store" />
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.familydog.wikibubbles" class="badge-google">
+                                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
-                            <a href="https://apps.apple.com/us/app/tuuvi-sun-care-routine/id6752693234?itscg=30200&itsct=apps_box_artwork&mttnsubad=6752693234" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle; 
+                            <a href="https://apps.apple.com/us/app/tuuvi-sun-care-routine/id6752693234?itscg=30200&itsct=apps_box_artwork&mttnsubad=6752693234" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
-  
+
                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/bb/ac/40bbac0c-40be-0da4-988e-b6471ce8d4ad/AppIcon-0-1x_U007epad-0-1-sRGB-85-220-0.png/540x540bb.jpg" alt="Tuuvi: Sun Care Routine"
                                      style="width: 100%; height: 100%; object-fit: contain;
                                      mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
-    
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.5 230.5" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-sizing: border-box;">
                               <path fill="none" stroke="#000" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-opacity=".1" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
                             </svg>
                             </a>
                         </div>
-                        <h3 class="product-title">Tuuvi</h3>
-                        <p class="product-description">
-                            Family-first sun safety for kids and parents. Create up to 8 child profiles and get personalized SPF and reapply reminders based on real-time UV, age, skin type, and daily routine. Includes location-based UV alerts, practical protection tips, and smart, non-intrusive notifications. Private by design — no tracking, no data sharing, no ads.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://apps.apple.com/us/app/tuuvi-sun-care-routine/id6752693234?itscg=30200&itsct=apps_box_badge&mttnsubad=6752693234" style="display: inline-block;">
-                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1758844800" alt="Download on the App Store" style="width: 122px; height: 41px; vertical-align: middle; object-fit: contain;" />
-                        </a>
+                        <div class="product-info">
+                            <h3 class="product-title">Tuuvi</h3>
+                            <p class="product-description">
+                                Family-first sun safety for kids and parents. Create up to 8 child profiles and get personalized SPF and reapply reminders based on real-time UV, age, skin type, and daily routine. Includes location-based UV alerts, practical protection tips, and smart, non-intrusive notifications. Private by design — no tracking, no data sharing, no ads.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://apps.apple.com/us/app/tuuvi-sun-care-routine/id6752693234?itscg=30200&itsct=apps_box_badge&mttnsubad=6752693234" class="badge-appstore">
+                                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1758844800" alt="Download on the App Store" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
                             <a href="https://apps.apple.com/us/app/kranked/id6755593681?itscg=30200&itsct=apps_box_artwork&mttnsubad=6755593681" style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
@@ -431,18 +535,20 @@
                             </svg>
                             </a>
                         </div>
-                        <h3 class="product-title">Kranked</h3>
-                        <p class="product-description">
-                            Free ASO tool for indie developers. Check app rankings, discover keywords, and track your competitors. Analyze what's working in the App Store and optimize your app's visibility — all without the expensive subscriptions.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://apps.apple.com/us/app/kranked/id6755593681?itscg=30200&itsct=apps_box_badge&mttnsubad=6755593681" style="display: inline-block;">
-                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1765152000" alt="Download on the App Store" style="width: 122px; height: 41px; vertical-align: middle; object-fit: contain;" />
-                        </a>
+                        <div class="product-info">
+                            <h3 class="product-title">Kranked</h3>
+                            <p class="product-description">
+                                Free ASO tool for indie developers. Check app rankings, discover keywords, and track your competitors. Analyze what's working in the App Store and optimize your app's visibility — all without the expensive subscriptions.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://apps.apple.com/us/app/kranked/id6755593681?itscg=30200&itsct=apps_box_badge&mttnsubad=6755593681" class="badge-appstore">
+                                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1765152000" alt="Download on the App Store" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
                             <span style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
@@ -456,16 +562,18 @@
                             </svg>
                             </span>
                         </div>
-                        <h3 class="product-title">Kumano</h3>
-                        <p class="product-description">
-                            Native macOS app for AI-assisted coding workflows. Eliminates repetitive context-sharing by maintaining persistent project information and conversation history. Smart onboarding converts ideas into work items, with git integration and team workspaces coming soon.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://kumano.app" class="btn btn-primary">Check it out</a>
+                        <div class="product-info">
+                            <h3 class="product-title">Kumano</h3>
+                            <p class="product-description">
+                                Native macOS app for AI-assisted coding workflows. Eliminates repetitive context-sharing by maintaining persistent project information and conversation history. Smart onboarding converts ideas into work items, with git integration and team workspaces coming soon.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://kumano.app" class="btn">Visit site</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
                             <span style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
@@ -479,16 +587,18 @@
                             </svg>
                             </span>
                         </div>
-                        <h3 class="product-title">Promptly</h3>
-                        <p class="product-description">
-                            Developer prompt analytics for AI coding sessions. Track token usage, session duration, and costs tied to tickets. Works with Claude Code, Codex CLI, Gemini CLI, VS Code, Cursor, and Windsurf. Local-first with optional cloud sync for teams.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://getpromptly.xyz" class="btn btn-primary">Check it out</a>
+                        <div class="product-info">
+                            <h3 class="product-title">Promptly</h3>
+                            <p class="product-description">
+                                Developer prompt analytics for AI coding sessions. Track token usage, session duration, and costs tied to tickets. Works with Claude Code, Codex CLI, Gemini CLI, VS Code, Cursor, and Windsurf. Local-first with optional cloud sync for teams.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://getpromptly.xyz" class="btn">Visit site</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-item">
                         <div class="product-icon-app">
                             <span style="position: relative; width: 80px; height: 80px; overflow: hidden; display: inline-block; vertical-align: middle;
                                 --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
@@ -502,12 +612,14 @@
                             </svg>
                             </span>
                         </div>
-                        <h3 class="product-title">SHRD</h3>
-                        <p class="product-description">
-                            Ridesharing app that connects commuters heading the same way. Find nearby riders, split the fare, and make your daily commute cheaper and more social. Features real-time matching, automatic fare splitting, and in-app messaging.
-                        </p>
-                        <div class="product-links">
-                        <a href="https://www.shrdapp.com" class="btn btn-primary">Check it out</a>
+                        <div class="product-info">
+                            <h3 class="product-title">SHRD</h3>
+                            <p class="product-description">
+                                Ridesharing app that connects commuters heading the same way. Find nearby riders, split the fare, and make your daily commute cheaper and more social. Features real-time matching, automatic fare splitting, and in-app messaging.
+                            </p>
+                            <div class="product-links">
+                                <a href="https://www.shrdapp.com" class="btn">Visit site</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -517,75 +629,38 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Akos Komuves. All rights reserved.</p>
+            <p>&copy; 2026 Akos Komuves.</p>
         </div>
     </footer>
 
     <script>
-        // Add smooth scrolling and interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth hover effects for cards
-            const cards = document.querySelectorAll('.product-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
+        (function() {
+            var toggle = document.getElementById('theme-toggle');
+            var html = document.documentElement;
 
-            // Add click animation to buttons
-            const buttons = document.querySelectorAll('.btn');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-
-                    // Create ripple effect
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-
-                    ripple.style.cssText = `
-                        position: absolute;
-                        width: ${size}px;
-                        height: ${size}px;
-                        left: ${x}px;
-                        top: ${y}px;
-                        background: rgba(255, 255, 255, 0.5);
-                        border-radius: 50%;
-                        transform: scale(0);
-                        animation: ripple 0.6s ease-out;
-                        pointer-events: none;
-                    `;
-
-                    this.style.position = 'relative';
-                    this.style.overflow = 'hidden';
-                    this.appendChild(ripple);
-
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
-        });
-
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
+            function isDark() {
+                return html.getAttribute('data-theme') === 'dark';
             }
-        `;
-        document.head.appendChild(style);
+
+            function setTheme(dark) {
+                if (dark) {
+                    html.setAttribute('data-theme', 'dark');
+                } else {
+                    html.removeAttribute('data-theme');
+                }
+                localStorage.setItem('theme', dark ? 'dark' : 'light');
+            }
+
+            toggle.addEventListener('click', function() {
+                setTheme(!isDark());
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    setTheme(e.matches);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
