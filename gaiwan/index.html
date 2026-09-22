@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaiwan — Support</title>
+<meta name="description" content="Support and privacy information for Gaiwan, a gongfu tea timer and journal for iPhone.">
+<link rel="canonical" href="https://tallpoppystudio.com/gaiwan/">
+<meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+<script>
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; tallpoppy</a>
+
+<h1>Gaiwan</h1>
+<p class="lede">A record of the tea you drink — what is in your cabinet, how each pot went,
+and where the leaf came from. For iPhone.</p>
+
+<h2>Getting help</h2>
+<p>Write to <a href="mailto:akos@tallpoppystudio.com">akos@tallpoppystudio.com</a>.
+Include your iOS version and what you were doing when something went wrong, and you
+will get a reply from a person.</p>
+
+<h2>Common questions</h2>
+<p><strong>Where is my data kept?</strong> On your device, and only there. There is no
+account, no sign-in and no server holding your sessions. See the
+<a href="privacy/">privacy policy</a>.</p>
+<p><strong>Does it work without a signal?</strong> Yes. The cabinet, the timer, the maps
+and the whole 243-entry catalogue work offline. The single exception is identifying a tea
+from a photo, which needs a connection because the photo is read by Google's Gemini.</p>
+<p><strong>What happens when I finish a tin?</strong> It stays in your cabinet with its
+record intact and drops out of the grid. Turn on "Show finished tins" from the menu on the
+Cabinet tab to bring it back.</p>
+<p><strong>Why does a pot warn me about the wrong tea?</strong> Porous clay keeps a trace
+of everything brewed in it. If you dedicate a pot to one category, Gaiwan says so when a
+session would put a different one in it. Unglazed ware only — porcelain and glass add
+nothing and are never flagged.</p>
+
+<hr>
+<p class="foot">Gaiwan is made by <a href="/">tallpoppy</a>, an independent software studio.
+&middot; <a href="privacy/">Privacy</a></p>
+</div>
+</body>
+</html>
