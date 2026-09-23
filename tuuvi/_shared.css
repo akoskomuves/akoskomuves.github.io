@@ -1,0 +1,47 @@
+/* Tokens lifted from the studio index so the app pages sit on the same
+   surface. Kept in one file rather than duplicated into each page. */
+:root {
+    --bg: #FAF9F5;
+    --bg-hover: #F0EEE6;
+    --text: #141413;
+    --text-muted: #5E5D59;
+    --text-soft: #8a8882;
+    --accent: #D97757;
+    --accent-hover: #C96442;
+    --border: rgba(20, 20, 19, 0.1);
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+}
+[data-theme="dark"] {
+    --bg: #141413;
+    --bg-hover: #1f1f1d;
+    --text: #f0eee6;
+    --text-muted: #a5a39b;
+    --text-soft: #6e6c66;
+    --accent: #e08868;
+    --accent-hover: #f2a078;
+    --border: rgba(240, 238, 230, 0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+.back { font-size: 0.875rem; color: var(--text-soft); display: inline-block; margin-bottom: 2.5rem; }
+h1 { font-family: var(--font-serif); font-weight: 600; font-size: 2.25rem; line-height: 1.2; letter-spacing: -0.02em; }
+h2 { font-family: var(--font-serif); font-weight: 600; font-size: 1.25rem; margin: 2.5rem 0 0.75rem; }
+.lede { color: var(--text-muted); font-size: 1.0625rem; margin-top: 0.75rem; }
+.updated { font-size: 0.8125rem; color: var(--text-soft); margin-top: 0.5rem; }
+p { margin-bottom: 1rem; }
+ul { margin: 0 0 1rem 1.25rem; }
+li { margin-bottom: 0.5rem; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 3rem 0; }
+.foot { font-size: 0.875rem; color: var(--text-soft); }
+@media (max-width: 480px) { .wrap { padding: 2.5rem 1.25rem 4rem; } h1 { font-size: 1.75rem; } }

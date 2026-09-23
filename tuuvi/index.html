@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuuvi — Support</title>
+<meta name="description" content="Support and privacy information for Tuuvi, a sun protection helper for families on iPhone.">
+<link rel="canonical" href="https://tallpoppystudio.com/tuuvi/">
+<meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+<script>
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; tallpoppy</a>
+
+<h1>Tuuvi</h1>
+<p class="lede">Tuuvi finds the right SPF for everyone in your family from today's UV forecast,
+and reminds you when it is time to reapply. For iPhone.</p>
+
+<h2>Getting help</h2>
+<p>Write to <a href="mailto:akos@tallpoppystudio.com">akos@tallpoppystudio.com</a>.
+Include your iOS version and what you were doing when something went wrong, and you
+will get a reply from a person.</p>
+
+<h2>Common questions</h2>
+<p><strong>How does Tuuvi choose an SPF and a reapply time?</strong> From each person's age,
+skin type and skin sensitivity, and from the UV forecast for the hours ahead rather than just
+the current reading — if UV is 3 now but will reach 8 by noon, the recommendation is made for 8.
+Water, sweat, sand and towels shorten the interval. When UV stays at 2 or below all day, Tuuvi
+tells you no sunscreen is needed.</p>
+<p><strong>Where is my family's data kept?</strong> On your iPhone, and in your own iCloud
+account if iCloud is switched on, so it reaches your other devices. We have no server and
+no copy of it. See the <a href="privacy/">privacy policy</a>.</p>
+<p><strong>Why does Tuuvi want my location?</strong> UV depends on where you are. Your location
+is used to fetch the local forecast from Apple Weather and to show your city's name. Without it,
+Tuuvi cannot give a forecast.</p>
+<p><strong>Can Tuuvi read my skin type from Health?</strong> Yes, if you allow it. Tuuvi reads the
+Fitzpatrick skin type you have set in the Health app so you don't have to enter it again. It is
+optional, and you can enter a skin type by hand instead.</p>
+<p><strong>I'm not getting reapply reminders.</strong> Check that notifications for Tuuvi are
+allowed in Settings &rarr; Notifications &rarr; Tuuvi, and that a Focus mode isn't holding them
+back. Reminders are scheduled when you tap Apply for a person.</p>
+<p><strong>How do I add more family members?</strong> The free version covers one profile. A
+subscription unlocks up to eight. Subscriptions are managed, and can be cancelled, in
+Settings &rarr; your name &rarr; Subscriptions.</p>
+
+<hr>
+<p class="foot">Tuuvi is made by <a href="/">tallpoppy</a>, an independent software studio.
+&middot; <a href="privacy/">Privacy</a></p>
+</div>
+</body>
+</html>
