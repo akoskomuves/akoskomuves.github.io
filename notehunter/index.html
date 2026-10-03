@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoteHunter — Ear Training &amp; Music Theory</title>
+<meta name="description" content="NoteHunter teaches you to hear music and understand it: ear training for notes, intervals and rhythm, sight reading, and a full music theory course. For iPhone, iPad and Mac.">
+<link rel="canonical" href="https://tallpoppystudio.com/notehunter/">
+<meta name="apple-itunes-app" content="app-id=1584522362">
+<meta property="og:title" content="NoteHunter — Ear Training &amp; Music Theory">
+<meta property="og:description" content="Hear it, name it, understand it. Ear training, sight reading and a music theory course in one app.">
+<meta property="og:image" content="https://tallpoppystudio.com/notehunter/img/icon.png">
+<meta property="og:url" content="https://tallpoppystudio.com/notehunter/">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+<script>
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_shared.css">
+<script src="campaign.js"></script>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; tallpoppy</a>
+
+<div class="app-head">
+<img src="img/icon.png" alt="" width="72" height="72">
+<h1>NoteHunter</h1>
+</div>
+<p class="lede">Hear a note and name it. Hear an interval and know it. Read a line of music
+and understand why it works. NoteHunter is ear training and music theory in one app, for
+iPhone, iPad and Mac.</p>
+
+<a class="badge" id="store-badge" href="https://apps.apple.com/app/id1584522362">
+<img class="on-light" src="img/app-store-badge.svg" alt="Download on the App Store" width="144" height="48">
+<img class="on-dark" src="img/app-store-badge-white.svg" alt="Download on the App Store" width="144" height="48">
+</a>
+<script>
+  document.getElementById('store-badge').href = notehunterCampaignUrl('website');
+</script>
+
+<div class="shots">
+<picture><source srcset="img/ear-training.webp" type="image/webp"><img src="img/ear-training.jpg" alt="Ear training: a note plays and you pick its name" width="621" height="1344" loading="lazy"></picture>
+<picture><source srcset="img/theory-course.webp" type="image/webp"><img src="img/theory-course.jpg" alt="The music theory course, from the staff to chords" width="621" height="1344" loading="lazy"></picture>
+<picture><source srcset="img/sight-reading.webp" type="image/webp"><img src="img/sight-reading.jpg" alt="Sight reading: name the note on the staff" width="621" height="1344" loading="lazy"></picture>
+<picture><source srcset="img/journey.webp" type="image/webp"><img src="img/journey.jpg" alt="The Journey: a step-by-step path through the skills" width="621" height="1344" loading="lazy"></picture>
+</div>
+
+<h2>Train your ear</h2>
+<ul class="points">
+<li><strong>Notes.</strong> A note plays, you name it. Start with two and work up to all twelve.</li>
+<li><strong>Intervals.</strong> From the minor third to the octave, one at a time, in the order ears learn them.</li>
+<li><strong>Rhythm.</strong> Listen to a pattern and build it back from note values.</li>
+<li><strong>Sight reading.</strong> See a note on the staff and name it, from a single position up to the full range.</li>
+</ul>
+
+<h2>Understand what you hear</h2>
+<p>A music theory course in nine units: the staff and clefs, steps and accidentals, scales,
+key signatures, intervals, rhythm and meter, chords and cadences. Each lesson is a few short cards
+and then a drill, so you use an idea straight after you read about it. Lessons you've
+passed come back in a daily review, so they don't fade.</p>
+
+<h2>Know where to start</h2>
+<p>New to music? The Journey takes you through the skills in the order music teachers
+use: sound before symbol, a few notes before many, easy intervals before hard ones.
+Already play? Free Practice opens every mode and setting, and statistics show which
+notes and intervals you have solid and which still slip.</p>
+
+<p>NoteHunter is in English, German, Spanish, French, Hungarian, Japanese, Korean and
+Chinese.</p>
+
+<hr>
+<p class="foot">NoteHunter is made by <a href="/">tallpoppy</a>, an independent software studio.
+&middot; <a href="support/">Support</a>
+&middot; <a href="privacy/">Privacy</a>
+&middot; <a href="beta/">Beta</a></p>
+</div>
+</body>
+</html>

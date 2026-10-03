@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoteHunter Insiders — Beta</title>
+<meta name="description" content="Join NoteHunter Insiders: try new versions of the ear training and music theory app before release, tell us what works, and get a free year.">
+<link rel="canonical" href="https://tallpoppystudio.com/notehunter/beta/">
+<link rel="icon" href="../img/icon.png">
+<meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+<script>
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+  }
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../_shared.css">
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/notehunter/">&larr; NoteHunter</a>
+
+<h1>NoteHunter Insiders</h1>
+<p class="lede">Get new versions of NoteHunter before anyone else, tell us what works and
+what doesn't, and help decide what it becomes. For musicians, students, teachers and anyone
+learning to hear music.</p>
+
+<h2>What you get</h2>
+<ul class="points">
+<li>Every new version early, through Apple's TestFlight app</li>
+<li>A direct line to the person who builds NoteHunter</li>
+<li>A <strong>free year of NoteHunter</strong> once you've sent feedback on two test versions</li>
+</ul>
+
+<h2>What we ask</h2>
+<ul class="points">
+<li>Use the test version as you would the real app, for a few sessions</li>
+<li>Tell us honestly what was confusing, too hard, too easy or broken</li>
+<li>When a version you tested is released, rate it on the App Store</li>
+</ul>
+<p>The next round tests a new way to start: a short check that finds your level and builds
+your path from there, and reworked lessons where people get stuck most.</p>
+
+<h2>How to join</h2>
+<ol class="steps">
+<li>Install <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight</a> from the
+App Store on your iPhone, iPad or Mac.</li>
+<li>Open the invite link below on that device and tap Accept, then Install.</li>
+<li>To send feedback, take a screenshot in the test app and tap Share Beta Feedback, or open
+NoteHunter in TestFlight and tap Send Beta Feedback. Email works too.</li>
+</ol>
+<p id="join"><a class="button" id="testflight-link" href="TESTFLIGHT_URL">Join the beta on TestFlight</a></p>
+<p class="updated" id="join-closed" hidden>The invite link opens soon. Write to
+<a href="mailto:hi@tallpoppystudio.com?subject=NoteHunter%20Insiders">hi@tallpoppystudio.com</a>
+and you'll be among the first in.</p>
+<script>
+  /* Paste the public TestFlight link (https://testflight.apple.com/join/…)
+     here once the Insiders group exists. Until then the button is hidden. */
+  var TESTFLIGHT_URL = 'TESTFLIGHT_URL';
+  if (TESTFLIGHT_URL.indexOf('https://') === 0) {
+      document.getElementById('testflight-link').href = TESTFLIGHT_URL;
+  } else {
+      document.getElementById('join').hidden = true;
+      document.getElementById('join-closed').hidden = false;
+  }
+</script>
+<p>Places are limited while the group is small. If the link says the beta is full, write to
+us and we'll let you know when there's room.</p>
+
+<h2>Your data in the beta</h2>
+<p>Test versions collect the same anonymous data as the released app, described in the
+<a href="../privacy/">privacy policy</a>. Feedback you send through TestFlight also reaches us
+with your name and email, as TestFlight shows them to the developer. We use them only to reply.</p>
+
+<hr>
+<p class="foot">NoteHunter is made by <a href="/">tallpoppy</a>, an independent software studio.
+&middot; <a href="../support/">Support</a></p>
+</div>
+</body>
+</html>

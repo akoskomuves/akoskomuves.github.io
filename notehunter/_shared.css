@@ -1,0 +1,93 @@
+/* Tokens lifted from the studio index so the app pages sit on the same
+   surface. Kept in one file rather than duplicated into each page. */
+:root {
+    --bg: #FAF9F5;
+    --bg-hover: #F0EEE6;
+    --text: #141413;
+    --text-muted: #5E5D59;
+    --text-soft: #8a8882;
+    --accent: #D97757;
+    --accent-hover: #C96442;
+    --border: rgba(20, 20, 19, 0.1);
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+}
+[data-theme="dark"] {
+    --bg: #141413;
+    --bg-hover: #1f1f1d;
+    --text: #f0eee6;
+    --text-muted: #a5a39b;
+    --text-soft: #6e6c66;
+    --accent: #e08868;
+    --accent-hover: #f2a078;
+    --border: rgba(240, 238, 230, 0.1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wrap { max-width: 44rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+.back { font-size: 0.875rem; color: var(--text-soft); display: inline-block; margin-bottom: 2.5rem; }
+h1 { font-family: var(--font-serif); font-weight: 600; font-size: 2.25rem; line-height: 1.2; letter-spacing: -0.02em; }
+h2 { font-family: var(--font-serif); font-weight: 600; font-size: 1.25rem; margin: 2.5rem 0 0.75rem; }
+.lede { color: var(--text-muted); font-size: 1.0625rem; margin-top: 0.75rem; }
+.updated { font-size: 0.8125rem; color: var(--text-soft); margin-top: 0.5rem; }
+p { margin-bottom: 1rem; }
+ul { margin: 0 0 1rem 1.25rem; }
+li { margin-bottom: 0.5rem; }
+hr { border: 0; border-top: 1px solid var(--border); margin: 3rem 0; }
+.foot { font-size: 0.875rem; color: var(--text-soft); }
+@media (max-width: 480px) { .wrap { padding: 2.5rem 1.25rem 4rem; } h1 { font-size: 1.75rem; } }
+
+/* NoteHunter additions: app header, screenshot strip, store badge. */
+.app-head { display: flex; align-items: center; gap: 1rem; }
+.app-head img { width: 72px; height: 72px; border-radius: 16px; border: 1px solid var(--border); }
+.badge { display: inline-block; margin-top: 1.75rem; line-height: 0; }
+.badge:hover { text-decoration: none; }
+.badge img { height: 48px; width: auto; }
+.badge .on-dark { display: none; }
+[data-theme="dark"] .badge .on-light { display: none; }
+[data-theme="dark"] .badge .on-dark { display: inline; }
+.shots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin: 3rem 0 1rem;
+}
+.shots img { width: 100%; height: auto; display: block; border-radius: 12px; background: #2a2725; }
+.points { list-style: none; margin-left: 0; }
+.points li { padding-left: 1.25rem; position: relative; }
+.points li::before { content: "♪"; position: absolute; left: 0; color: var(--accent); }
+.steps { counter-reset: step; list-style: none; margin-left: 0; }
+.steps li { counter-increment: step; padding-left: 2rem; position: relative; }
+.steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0.1rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: var(--bg-hover); color: var(--text-muted);
+    font-size: 0.8125rem; font-weight: 600; text-align: center; line-height: 1.4rem;
+}
+.button {
+    display: inline-block; margin-top: 0.5rem; padding: 0.7rem 1.25rem;
+    border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 500;
+}
+.button:hover { color: var(--bg); background: var(--text-muted); text-decoration: none; }
+@media (max-width: 640px) {
+    /* Phone width: scroll the screenshots sideways inside their row
+       rather than shrinking four phones into unreadable slivers. */
+    .shots {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 62%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 0.5rem;
+    }
+    .shots img { scroll-snap-align: start; }
+}
