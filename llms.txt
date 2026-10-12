@@ -1,0 +1,46 @@
+# Tall Poppy Studio
+
+> Tall Poppy Studio is an independent software studio in Budapest, Hungary, run by Akos Komuves. It makes native iOS and Mac apps, web products and open-source AI developer tools, and builds software for clients.
+
+Contact: akos@tallpoppystudio.com. Website: https://tallpoppystudio.com/. Last updated: 2026-10-13.
+
+## Key pages
+
+- [Apps](https://tallpoppystudio.com/apps/): every app, with status and platforms
+- [Client work](https://tallpoppystudio.com/work/): services, current client work (under NDA) and previous teams (Tier, ABC News, Queensland Police Service, Liven)
+- [Open source](https://tallpoppystudio.com/open-source/): MCP servers and agent skills
+- [About](https://tallpoppystudio.com/about/): Akos Komuves and the studio
+- [Now](https://tallpoppystudio.com/now/): current focus, dated
+- [Press kit](https://tallpoppystudio.com/press/): boilerplate, mark, icons
+
+## Apps
+
+- [WikiCatch](https://tallpoppystudio.com/wikicatch/): a fishing spots map app for iPhone. Live; iOS. Website: https://wikicatch.app. App Store: https://apps.apple.com/app/id6758548046.
+- [WikiHunt](https://tallpoppystudio.com/wikihunt/): a GPS hunting map app for iPhone. Live; iOS. Website: https://wikihunt.app. App Store: https://apps.apple.com/app/id6760655517.
+- [NoteHunter](https://tallpoppystudio.com/notehunter/): an ear training and music theory app for iPhone, iPad and Mac. Live; iOS, iPadOS, macOS. App Store: https://apps.apple.com/app/id1584522362.
+- [MeritValue](https://tallpoppystudio.com/meritvalue/): a stock valuation service on the web and iPhone that computes intrinsic value from SEC filings. Live; Web, iOS, MCP. Website: https://www.meritvalue.com. App Store: https://apps.apple.com/app/id6795664202.
+- [Kufu](https://tallpoppystudio.com/kufu/): a workout tracker for iPhone and Apple Watch that combines gym strength training with calisthenics. Live; iOS, watchOS. Website: https://kufuapp.com. App Store: https://apps.apple.com/app/id6760716466.
+- [Matchframe](https://tallpoppystudio.com/matchframe/): an AI dating photo coach for iPhone. Live; iOS. Website: https://matchframe.app. App Store: https://apps.apple.com/app/id6759290521.
+- [Kumano](https://tallpoppystudio.com/kumano/): a Mac app that adds a product-management layer to agentic development with Claude Code. Beta; macOS. Website: https://kumano.app.
+- [Invention Capture](https://tallpoppystudio.com/invention-capture/): an iPhone app that turns a spoken description and photos of an invention into a structured invention disclosure, on the device. Live; iOS. App Store: https://apps.apple.com/app/id6778804651.
+- [Kotone](https://tallpoppystudio.com/kotone/): a website for listening to traditional music of Japan and China from public-domain and Creative Commons recordings. Live; Web. Website: https://kotone.co.
+- [SHRD](https://tallpoppystudio.com/shrd/): a taxi-sharing app for iPhone and Android. Live; iOS, Android. Website: https://www.shrdapp.com. App Store: https://apps.apple.com/app/id6755481627.
+- [Gaiwan](https://tallpoppystudio.com/gaiwan/): a gongfu tea timer and tea journal for iPhone. Live; iOS. App Store: https://apps.apple.com/app/id6814422371.
+- [Tuuvi](https://tallpoppystudio.com/tuuvi/): a sun care app for families on iPhone. Maintained; iOS. App Store: https://apps.apple.com/app/id6752693234.
+- [SensorCam RAW](https://tallpoppystudio.com/sensorcam/): an iPhone camera app for open gate video and 48 MP ProRAW photos. Beta; iOS.
+- [Kranked](https://tallpoppystudio.com/kranked/): an App Store keyword tracker for iPhone. Live; iOS. App Store: https://apps.apple.com/app/id6755593681.
+
+## Open source
+
+- [appstoreconnect-mcp](https://github.com/akoskomuves/appstoreconnect-mcp): An MCP server for the App Store Connect API. MIT. Install: `npx -y @akoskomuves/appstoreconnect-mcp`.
+- [kranked-mcp](https://github.com/akoskomuves/kranked): App Store keyword research for your AI coding assistant. MIT. Install: `claude mcp add kranked -- uvx kranked-mcp`.
+- [aso-cross-localization](https://github.com/akoskomuves/aso-cross-localization): A Claude Code skill for App Store cross-localization. MIT.
+- [meritvalue-skills](https://github.com/akoskomuves/meritvalue-skills): Skills for valuing public companies like an owner. MIT.
+
+## Support
+
+Each app's page on this site links to its support and privacy pages. All support email goes to akos@tallpoppystudio.com and is answered by Akos.
+
+## Optional
+
+- [Earlier apps](https://tallpoppystudio.com/apps/#g-earlier): WikiBubbles (no longer in active development)

@@ -1,4 +1,20 @@
+# Search engines and AI assistants are welcome to read and cite this site.
+# Pages that should stay out of results carry a noindex meta tag instead of a
+# Disallow, so crawlers can read it.
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://tallpoppystudio.com/sitemap.xml

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="32" viewBox="0 0 196 32" role="img" aria-label="A Tall Poppy Studio app">
+  <rect x="0.5" y="0.5" width="195" height="31" rx="15.5" fill="#17130F" stroke="rgba(242,235,224,0.22)"/>
+  <g transform="translate(12 5) scale(0.55)"><path d="M12 38.5V18" stroke="#F2EBE0" stroke-width="1.7" stroke-linecap="round"/><circle cx="7.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="16.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="7.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="16.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="12" cy="12" r="2.6" fill="#F2EBE0"/></g>
+  <text x="32" y="20.5" fill="#F2EBE0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">A Tall Poppy Studio app</text>
+</svg>
