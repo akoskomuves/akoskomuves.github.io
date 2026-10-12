@@ -570,3 +570,121 @@ export function badgePage() {
     body,
   });
 }
+
+// ---------------------------------------------------------------- homepage
+export function homePage(stats) {
+  const by = Object.fromEntries(APPS.map((a) => [a.slug, a]));
+  const featured = ['wikicatch', 'notehunter', 'meritvalue', 'kufu', 'wikihunt', 'matchframe'].map((s) => by[s]);
+  const rest = APPS.filter((a) => !featured.includes(a) && !a.flagship && a.status !== 'archived');
+  const kumano = by.kumano;
+  const storeCount = APPS.filter((a) => a.appStoreId && !a.externalStore).length;
+  const asc = stats['appstoreconnect-mcp'] || {};
+
+  const fcard = (a) => {
+    const ext = /^https?:/.test(a.url);
+    return `<article class="card fcard reveal" data-slug="${a.slug}">
+  <div class="stage">${phone(a)}</div>
+  <div class="body">
+    <div class="card-top">${iconImg(a, 48)}<div><h3><a href="/${a.slug}/">${esc(a.name)}</a></h3></div></div>
+    ${chips(a)}
+    <p class="tag">${esc(a.tagline)}</p>
+    <p class="links">${ext ? `<a href="${esc(a.url)}">${esc(a.urlLabel)}</a>` : ''}${a.appStoreId ? `<a href="${esc(appStoreUrl(a.appStoreId, 'studio-home'))}">App Store</a>` : ''}<a href="${esc(supportHref(a))}">Support</a>${a.privacy ? `<a href="${esc(a.privacy)}">Privacy</a>` : ''}</p>
+  </div>
+</article>`;
+  };
+  const row = (a) => `<li><a class="row" href="/${a.slug}/">${iconImg(a, 40)}<span><span class="t">${esc(a.name)}</span><br><span class="d">${esc(a.tagline)}</span></span>${chips(a)}</a></li>`;
+
+  const proof = [
+    [String(storeCount), 'apps live on the App Store'],
+    ['6,000+', 'US companies valued nightly by MeritValue'],
+    ['0 → millions', 'users on Tier’s first iOS app, built from scratch'],
+    asc.downloads ? [asc.downloads.toLocaleString('en-US'), 'npm downloads of appstoreconnect-mcp in the last 30 days'] : null,
+  ].filter(Boolean);
+
+  const hero = `<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow accent reveal">Tall Poppy Studio · Budapest</p>
+      <h1 class="reveal">Native apps and AI tooling, built by one engineer.</h1>
+      <p class="lede reveal">Tall Poppy Studio is the independent software studio of Akos Komuves. It makes iPhone, Mac and web apps, open-source tools for building apps with AI agents, and software for clients.</p>
+      <div class="btns reveal" style="margin-top:2rem"><a class="btn btn-primary" href="/apps/">See the apps <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="/work/">Work with me</a></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="phone p1">${by.meritvalue.shot ? `<img src="/img/shots/meritvalue.webp" alt="" width="480" height="1043" decoding="async">` : ''}</div>
+      <div class="phone p2"><img src="/img/shots/wikicatch.webp" alt="" width="480" height="1043" fetchpriority="high" decoding="async"></div>
+      <div class="phone p3"><img src="/img/shots/notehunter.webp" alt="" width="480" height="1043" decoding="async"></div>
+      <span class="hero-poppy">${glyph({ size: 64 })}</span>
+    </div>
+  </div>
+</section>`;
+
+  const body = `${hero}
+<section class="proof" aria-label="The studio in numbers">
+  <div class="wrap"><ul class="proof-list">${proof.map(([n, l]) => `<li class="reveal"><span class="n">${esc(n)}</span><span class="l">${esc(l)}</span></li>`).join('')}</ul>
+  <p class="updated" style="margin-top:.75rem">As of ${UPDATED_HUMAN}. Sources: App Store, meritvalue.com, npm.</p></div>
+</section>
+
+<section class="section" aria-labelledby="h-flagship">
+  <div class="wrap">
+    <div class="section-head"><h2 id="h-flagship">Flagship: Kumano</h2></div>
+    <div class="flagship reveal">
+      ${iconImg(kumano, 88)}
+      <div>
+        ${chips(kumano)}
+        <p class="lede" style="margin-top:.875rem;color:var(--ink)"><strong>Kumano is the product-management layer for agentic development.</strong> A team writes down what it wants; Kumano turns it into a committed spec and plan, runs Claude Code through it with a person at every gate, reviews each change and ships it in one click.</p>
+        <div class="btns" style="margin-top:1.25rem"><a class="btn btn-primary" href="https://kumano.app">Visit kumano.app <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="/kumano/">About Kumano</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-apps">
+  <div class="wrap">
+    <div class="section-head"><h2 id="h-apps">Apps</h2><a class="more" href="/apps/">All apps →</a></div>
+    <div class="featured">${featured.map(fcard).join('\n')}</div>
+    <h3 class="eyebrow" style="margin:3rem 0 1rem">More from the studio</h3>
+    <ul class="list">${rest.map(row).join('')}</ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-work">
+  <div class="wrap">
+    <div class="section-head"><h2 id="h-work">Client work</h2><a class="more" href="/work/">Work with me →</a></div>
+    ${rowsHtml([[CLIENT_CASE.title, CLIENT_CASE.meta, CLIENT_CASE.body, CLIENT_CASE.scope]])}
+    <div class="prev reveal"><p class="eyebrow">Previously</p><ul>${PREVIOUSLY.map(([t]) => `<li>${esc(t)}</li>`).join('')}</ul></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-oss">
+  <div class="wrap">
+    <div class="section-head"><h2 id="h-oss">Open source</h2><a class="more" href="/open-source/">All projects →</a></div>
+    <div class="grid">${OSS.slice(0, 3).map(ossCard).join('\n')}</div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-now">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <div class="section-head"><h2 id="h-now">Now</h2></div>
+      <ul class="now-list">${NOW.slice(0, 3).map(([t, b]) => `<li><strong>${esc(t)}.</strong> ${esc(b)}</li>`).join('')}</ul>
+      <p class="small" style="margin-top:1rem"><a href="/now/">Everything I’m working on</a> · <span class="muted">updated ${UPDATED_HUMAN}</span></p>
+    </div>
+    <div class="reveal" id="support">
+      <div class="section-head"><h2>Need help with an app?</h2></div>
+      <p class="muted" style="margin-bottom:1rem">Pick it here. A person answers every email.</p>
+      <ul class="support-icons">${APPS.filter((a) => a.status !== 'archived').map((a) => `<li><a href="${esc(supportHref(a))}" title="${esc(a.name)} support">${iconImg(a, 44)}<span class="sr">${esc(a.name)} support</span></a></li>`).join('')}</ul>
+    </div>
+  </div>
+</section>`;
+
+  return page({
+    path: '/', current: '/',
+    title: 'Tall Poppy Studio — Akos Komuves, independent software studio',
+    description: 'Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web products and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.',
+    og: '/og/home.png',
+    ogAlt: 'Tall Poppy Studio: native apps and AI tooling, by Akos Komuves',
+    ld: [ORG, PERSON, { '@type': 'WebSite', '@id': `${SITE}/#site`, url: `${SITE}/`, name: 'Tall Poppy Studio', publisher: { '@id': `${SITE}/#org` } }],
+    extraHead: '<link rel="preload" as="image" href="/img/shots/wikicatch.webp" type="image/webp">',
+    body,
+  });
+}

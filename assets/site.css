@@ -81,8 +81,8 @@ a:hover { color: var(--link-hover); }
 .site-head {
   position: sticky; top: 0; z-index: 50;
   background: color-mix(in srgb, var(--paper) 86%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
 }
@@ -311,3 +311,54 @@ pre { background: var(--paper-2); border: 1px solid var(--line); border-radius: 
   .card:hover, .btn:hover, .fcard:hover .phone { transform: none; }
 }
 @media (max-width: 640px) { :root { --gutter: 16px; } }
+
+/* ---- homepage ---- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(2rem, 5vw, 3.5rem); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 2.5rem; align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 4.75rem); margin: 1.25rem 0 1.5rem; max-width: 13ch; }
+.hero-art { position: relative; height: 520px; }
+.hero-art .phone { position: absolute; width: 200px; top: 40px; }
+.hero-art .p1 { left: 4%; transform: rotate(-8deg); top: 70px; }
+.hero-art .p2 { left: 30%; z-index: 2; top: 10px; }
+.hero-art .p3 { left: 56%; transform: rotate(7deg); top: 80px; }
+.hero-poppy { position: absolute; right: 0; bottom: -10px; z-index: 3; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-art .p2 { animation: float 7s ease-in-out infinite; }
+  .hero-poppy { animation: sway 6s ease-in-out infinite; }
+}
+.hero-poppy svg { width: 46px; height: auto; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { height: 360px; max-width: 420px; }
+  .hero-art .phone { width: 140px; }
+}
+@media (max-width: 420px) { .hero-art { height: 300px; } .hero-art .phone { width: 120px; } }
+.proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.75rem 0; background: var(--paper-2); }
+.proof-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.25rem 2rem; }
+.proof-list li { display: flex; flex-direction: column; gap: 0.25rem; }
+.proof-list .n { font-family: var(--serif); font-size: clamp(1.75rem, 3.4vw, 2.375rem); font-weight: 560; letter-spacing: -0.02em; line-height: 1; font-variation-settings: "opsz" 96; }
+.proof-list .l { color: var(--muted); font-size: 0.875rem; line-height: 1.4; }
+.flagship { display: grid; grid-template-columns: auto 1fr; gap: 1.75rem; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); }
+@media (max-width: 600px) { .flagship { grid-template-columns: 1fr; } }
+.prev { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.5rem; margin-top: 2rem; }
+.prev ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+.prev li { font-family: var(--serif); font-size: 1.375rem; font-weight: 560; letter-spacing: -0.01em; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+@media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+.now-list { list-style: none; display: grid; gap: 0.875rem; }
+.now-list li { color: var(--muted); padding-left: 1.25rem; position: relative; }
+.now-list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--poppy); }
+.now-list strong { color: var(--ink); font-weight: 600; }
+.support-icons { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.support-icons a { display: block; border-radius: 12px; transition: transform 0.2s ease; }
+.support-icons a:hover { transform: translateY(-3px) scale(1.04); }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fcard .phone { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% cover 45%; }
+    @keyframes rise { from { transform: translateY(40px); } to { transform: translateY(0); } }
+    .fcard:hover .phone { animation: none; }
+  }
+}
