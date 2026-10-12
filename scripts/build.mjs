@@ -6,6 +6,9 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APPS, OSS, STATUS, SITE, EMAIL, UPDATED, appStoreUrl } from './data.mjs';
+import * as P from './pages.mjs';
+import { ORG, PERSON, jsonld } from './layout.mjs';
+import { glyph, head, POPPY, POPPY_DEEP, INK } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -24,9 +27,9 @@ const inject = (html, name, content) => {
 
 // Where a card's Support link goes: the app's own support page if it has
 // one, otherwise its studio hub page (which carries the support address).
-const HUBS_BUILT = false; // flipped once the /{app}/ hub pages exist
+const HUBS_BUILT = true;
 const hasHub = (a) => a.hub === 'existing' || (HUBS_BUILT && a.hub !== 'none');
-export const supportHref = (a) => a.support || (hasHub(a) ? `/${a.slug}/` : `mailto:${EMAIL}`);
+const supportHref = (a) => a.support || (hasHub(a) ? `/${a.slug}/#support` : `mailto:${EMAIL}`);
 // Primary link: the product domain, the studio page, or the App Store.
 const primaryHref = (a) => (/^https?:/.test(a.url) || hasHub(a)) ? a.url
   : (a.appStoreId ? appStoreUrl(a.appStoreId, 'studio-home') : a.support);
@@ -82,7 +85,9 @@ function buildHome() {
   const cards = order.map((s) => homeCard(bySlug[s]))
     .concat(OSS.slice(0, 2).map(ossCard))
     .concat([homeCard(bySlug.wikibubbles)]);
-  write('index.html', inject(read('index.html'), 'products', cards.join('\n\n')));
+  let html = inject(read('index.html'), 'products', cards.join('\n\n'));
+  html = inject(html, 'ld', jsonld([ORG, PERSON, { '@type': 'WebSite', '@id': `${SITE}/#site`, url: `${SITE}/`, name: 'Tall Poppy Studio', publisher: { '@id': `${SITE}/#org` } }]));
+  write('index.html', html);
 }
 
 // ---- sitemap ---------------------------------------------------------------
@@ -103,5 +108,62 @@ function buildSitemap(extra = []) {
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`);
 }
 
+// Download/star counts for /open-source/, fetched at build time. Optional:
+// on any failure the page just leaves the numbers out.
+async function ossStats() {
+  const get = async (u) => { try { const r = await fetch(u, { headers: { 'user-agent': 'tallpoppystudio-build' }, signal: AbortSignal.timeout(8000) }); return r.ok ? r.json() : null; } catch { return null; } };
+  const out = {};
+  await Promise.all(OSS.map(async (o) => {
+    const s = {};
+    if (o.npm) {
+      const d = await get(`https://api.npmjs.org/downloads/point/last-month/${o.npm}`);
+      const m = await get(`https://registry.npmjs.org/${o.npm.replace('/', '%2f')}`);
+      if (d?.downloads) { s.downloads = d.downloads; s.source = 'npm'; }
+      if (m?.['dist-tags']?.latest) s.version = m['dist-tags'].latest;
+    }
+    if (o.pypi) {
+      const d = await get(`https://pypistats.org/api/packages/${o.pypi}/recent`);
+      const m = await get(`https://pypi.org/pypi/${o.pypi}/json`);
+      if (d?.data?.last_month) { s.downloads = d.data.last_month; s.source = 'PyPI'; }
+      if (m?.info?.version) s.version = m.info.version;
+    }
+    const gh = (o.links.find(([l]) => l === 'GitHub') || [])[1];
+    if (gh) {
+      const r = await get(gh.replace('https://github.com/', 'https://api.github.com/repos/'));
+      if (r?.stargazers_count) s.stars = r.stargazers_count;
+    }
+    out[o.slug] = s;
+  }));
+  return out;
+}
+
+const hubs = APPS.filter((a) => a.hub !== 'existing' && a.hub !== 'none');
+for (const a of hubs) {
+  if (existsSync(join(ROOT, a.slug, 'index.html')) && !read(`${a.slug}/index.html`).includes('<link rel="stylesheet" href="/assets/site.css">')) {
+    throw new Error(`${a.slug}/index.html exists and is hand-written; refusing to overwrite`);
+  }
+  write(`${a.slug}/index.html`, P.hubPage(a));
+}
+write('apps/index.html', P.appsPage());
+write('work/index.html', P.workPage());
+write('open-source/index.html', P.ossPage(await ossStats()));
+write('about/index.html', P.aboutPage());
+write('now/index.html', P.nowPage());
+write('press/index.html', P.pressPage());
+write('404.html', P.notFoundPage());
+write('badge/index.html', P.badgePage());
+write('badge/badge.svg', P.badgeSvg(false));
+write('badge/badge-dark.svg', P.badgeSvg(true));
+write('badge/snippet.html', P.badgeSnippet() + '\n');
+write('llms.txt', P.llmsTxt());
+write('robots.txt', P.robotsTxt());
+write('favicon.svg', head() + '\n');
+write('press/tall-poppy-mark.svg', glyph({ size: 240, petal: POPPY, deep: POPPY_DEEP, ink: INK }).replace(' aria-hidden="true" focusable="false"', '') + '\n');
+
 buildHome();
-buildSitemap();
+buildSitemap([
+  ['/apps/', UPDATED, '0.9'],
+  ...hubs.map((a) => [`/${a.slug}/`, UPDATED, '0.7']),
+  ['/work/', UPDATED, '0.8'], ['/open-source/', UPDATED, '0.7'], ['/about/', UPDATED, '0.8'],
+  ['/now/', UPDATED, '0.6'], ['/press/', UPDATED, '0.4'], ['/badge/', UPDATED, '0.3'],
+]);

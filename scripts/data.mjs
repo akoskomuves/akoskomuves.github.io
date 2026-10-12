@@ -63,6 +63,7 @@ export const APPS = [
     tagline: 'Intrinsic stock valuations computed from SEC filings.',
     desc: 'More than 6,000 US-listed companies valued nightly by a deterministic, version-controlled engine, with every figure traceable to the filing it came from. It asks whether a business is worth owning at a fair price, not whether the stock will go up.',
     url: 'https://www.meritvalue.com', urlLabel: 'meritvalue.com', appStoreId: '6795664202',
+    price: 'Free download on the App Store; paid plans on the web, see <a href="https://www.meritvalue.com/pricing">meritvalue.com/pricing</a>',
     support: 'https://www.meritvalue.com/support', privacy: 'https://www.meritvalue.com/privacy', terms: 'https://www.meritvalue.com/terms',
     shot: 'meritvalue', shotAlt: 'MeritValue on the web: the Apple Inc. valuation page with figures from the filings',
     category: 'FinanceApplication', web: true,
@@ -93,6 +94,8 @@ export const APPS = [
     tagline: 'The product-management layer for agentic development.',
     desc: 'A team writes down what it wants; Kumano turns that into a committed intent, spec and plan, runs Claude Code through them with a person at every gate, reviews each change, and ships it in one click. Prompt review, formerly Promptly, is built in.',
     url: 'https://kumano.app', urlLabel: 'kumano.app',
+    price: 'macOS beta, downloaded from kumano.app',
+    note: 'Kumano is a macOS beta. Download it from <a href="https://kumano.app">kumano.app</a>.',
     privacy: 'https://kumano.app/privacy', terms: 'https://kumano.app/terms',
     category: 'DeveloperApplication', mac: true,
   },
@@ -111,6 +114,7 @@ export const APPS = [
     tagline: 'A listening room for traditional music of Japan and China.',
     desc: 'Koto, shakuhachi, gagaku, guqin, erhu and Peking opera. Every recording is public domain or Creative Commons, streamed from the Internet Archive and catalogued by hand with original-script titles, licence and source.',
     url: 'https://kotone.co', urlLabel: 'kotone.co',
+    price: 'Free to listen on the web',
     category: 'MusicApplication', web: true,
   },
   {
@@ -147,7 +151,10 @@ export const APPS = [
     tagline: 'Open gate video and 48 MP ProRAW on iPhone.',
     desc: 'A camera app that records full-sensor open gate video to the iPhone itself and shoots 48 MP ProRAW stills, with manual controls, Log and LUTs. In TestFlight beta.',
     url: '/sensorcam/', urlLabel: 'SensorCam RAW page',
+    price: 'TestFlight beta; not on the App Store yet',
+    note: 'SensorCam RAW is in TestFlight beta and not on the App Store yet. To join the beta, write to <a href="mailto:akos@tallpoppystudio.com?subject=SensorCam%20RAW%20beta">akos@tallpoppystudio.com</a>.',
     support: '/sensorcam/support/', privacy: '/sensorcam/privacy/',
+    shot: 'sensorcam', shotAlt: 'The SensorCam RAW viewfinder in photo mode with manual exposure controls',
     category: 'PhotographyApplication', noDomain: true,
   },
   {
@@ -157,6 +164,7 @@ export const APPS = [
     desc: 'Check where your app ranks for a keyword, find new keywords and watch competitors, using Apple’s own public data, without an expensive subscription.',
     url: '/kranked/', urlLabel: 'Kranked page', appStoreId: '6755593681',
     privacy: 'https://github.com/akoskomuves/privacy-policies/wiki/Kranked-PP',
+    shot: 'kranked', shotAlt: 'The Kranked dashboard: tracked keywords, average rank and fastest climbers',
     category: 'DeveloperApplication', noDomain: true,
   },
   {
