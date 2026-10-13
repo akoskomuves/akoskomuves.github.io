@@ -9,6 +9,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APPS, OSS, SITE, UPDATED } from './data.mjs';
 import * as P from './pages.mjs';
+import * as W from './writing.mjs';
 import { glyph, head, POPPY, POPPY_DEEP, INK } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -86,7 +87,9 @@ write('badge/index.html', P.badgePage());
 write('badge/badge.svg', P.badgeSvg(false));
 write('badge/badge-dark.svg', P.badgeSvg(true));
 write('badge/snippet.html', P.badgeSnippet() + '\n');
-write('llms.txt', P.llmsTxt());
+for (const p of W.POSTS) write(`writing/${p.slug}/index.html`, W.postPage(p, read(p.source)));
+write('writing/index.html', W.indexPage(W.POSTS));
+write('llms.txt', P.llmsTxt(W.POSTS));
 write('robots.txt', P.robotsTxt());
 write('favicon.svg', head() + '\n');
 write('press/tall-poppy-mark.svg', glyph({ size: 240, petal: POPPY, deep: POPPY_DEEP, ink: INK }).replace(' aria-hidden="true" focusable="false"', '') + '\n');
@@ -96,4 +99,5 @@ buildSitemap([
   ...hubs.map((a) => [`/${a.slug}/`, UPDATED, '0.7']),
   ['/work/', UPDATED, '0.8'], ['/open-source/', UPDATED, '0.7'], ['/about/', UPDATED, '0.8'],
   ['/now/', UPDATED, '0.6'], ['/press/', UPDATED, '0.4'], ['/badge/', UPDATED, '0.3'],
+  ...(W.POSTS.length ? [['/writing/', W.POSTS[0].date, '0.7']] : []), ...W.POSTS.map((p) => [`/writing/${p.slug}/`, p.date, '0.7']),
 ]);

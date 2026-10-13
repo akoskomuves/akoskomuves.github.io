@@ -12,6 +12,7 @@ Contact: akos@tallpoppystudio.com. Website: https://tallpoppystudio.com/. Last u
 - [About](https://tallpoppystudio.com/about/): Akos Komuves and the studio
 - [Now](https://tallpoppystudio.com/now/): current focus, dated
 - [Press kit](https://tallpoppystudio.com/press/): boilerplate, mark, icons
+- [Writing](https://tallpoppystudio.com/writing/): notes on building and growing apps with AI agents
 
 ## Apps
 
@@ -36,6 +37,10 @@ Contact: akos@tallpoppystudio.com. Website: https://tallpoppystudio.com/. Last u
 - [kranked-mcp](https://github.com/akoskomuves/kranked): App Store keyword research for your AI coding assistant. MIT. Install: `claude mcp add kranked -- uvx kranked-mcp`.
 - [aso-cross-localization](https://github.com/akoskomuves/aso-cross-localization): A Claude Code skill for App Store cross-localization. MIT.
 - [meritvalue-skills](https://github.com/akoskomuves/meritvalue-skills): Skills for valuing public companies like an owner. MIT.
+
+## Writing
+
+- [I taught Claude Code the App Store trick almost no indie uses](https://tallpoppystudio.com/writing/indexed-titles/) (2026-10-13): Cross-localization is an App Store optimisation technique: every storefront also indexes metadata from localizations its shoppers never see, so filling those hidden titles, subtitles and keyword fields multiplies the words that rank in one market. Here is how it works, and the Claude Code setup (one skill, three MCP servers) that does it end to end.
 
 ## Support
 

@@ -465,7 +465,7 @@ export function notFoundPage() {
 }
 
 // ---------------------------------------------------------------- llms.txt
-export function llmsTxt() {
+export function llmsTxt(posts = []) {
   const line = (a) => `- [${a.name}](${abs(hubHref(a))}): ${what(a)}. ${STATUS[a.status]}; ${a.platforms.join(', ')}.${/^https?:/.test(a.url) && a.hub !== 'none' ? ` Website: ${a.url}.` : ''}${a.appStoreId ? ` App Store: https://apps.apple.com/app/id${a.appStoreId}.` : ''}`;
   return `# Tall Poppy Studio
 
@@ -481,6 +481,7 @@ Contact: ${EMAIL}. Website: ${SITE}/. Last updated: ${UPDATED}.
 - [About](${SITE}/about/): Akos Komuves and the studio
 - [Now](${SITE}/now/): current focus, dated
 - [Press kit](${SITE}/press/): boilerplate, mark, icons
+- [Writing](${SITE}/writing/): notes on building and growing apps with AI agents
 
 ## Apps
 
@@ -490,7 +491,7 @@ ${APPS.filter((a) => a.status !== 'archived').map(line).join('\n')}
 
 ${OSS.map((o) => `- [${o.name}](${o.links[o.links.length - 1][1]}): ${o.tagline} ${o.license}.${o.install ? ` Install: \`${o.install}\`.` : ''}`).join('\n')}
 
-## Support
+${posts.length ? `## Writing\n\n${posts.map((p) => `- [${p.title}](${SITE}/writing/${p.slug}/) (${p.date}): ${p.lede}`).join('\n')}\n\n` : ''}## Support
 
 Each app's page on this site links to its support and privacy pages. All support email goes to ${EMAIL} and is answered by Akos.
 

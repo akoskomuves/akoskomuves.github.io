@@ -50,6 +50,7 @@ const NAV = [
   ['Apps', '/apps/'],
   ['Work', '/work/'],
   ['Open source', '/open-source/'],
+  ['Writing', '/writing/'],
   ['About', '/about/'],
   ['Now', '/now/'],
 ];
@@ -92,7 +93,7 @@ export function footer() {
       <div><h2>Support</h2><ul>${supportLinks}<li><a href="/apps/#support">Every app</a></li></ul></div>
       <div><h2>Studio</h2><ul>
         <li><a href="/about/">About</a></li><li><a href="/work/">Client work</a></li>
-        <li><a href="/open-source/">Open source</a></li><li><a href="/now/">Now</a></li>
+        <li><a href="/open-source/">Open source</a></li><li><a href="/writing/">Writing</a></li><li><a href="/now/">Now</a></li>
         <li><a href="/press/">Press kit</a></li><li><a href="/badge/">Studio badge</a></li>
       </ul></div>
     </div>
