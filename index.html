@@ -1,226 +1,991 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tall Poppy Studio — Akos Komuves, independent software studio</title>
-<meta name="description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web products and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
-<link rel="canonical" href="https://tallpoppystudio.com/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Tall Poppy Studio">
-<meta property="og:title" content="Tall Poppy Studio — Akos Komuves, independent software studio">
-<meta property="og:description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web products and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
-<meta property="og:url" content="https://tallpoppystudio.com/">
-<meta property="og:image" content="https://tallpoppystudio.com/og/home.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tall Poppy Studio: native apps and AI tooling, by Akos Komuves">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@AkosKomuves">
-<meta name="twitter:title" content="Tall Poppy Studio — Akos Komuves, independent software studio">
-<meta name="twitter:description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web products and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
-<meta name="twitter:image" content="https://tallpoppystudio.com/og/home.png">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#17130F" media="(prefers-color-scheme: dark)">
-<script>(function(){var d=document.documentElement;d.classList.remove('no-js');var s=null;try{s=localStorage.getItem('theme')}catch(e){}if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme: dark)').matches)){d.setAttribute('data-theme','dark')}else if(s==='light'){d.setAttribute('data-theme','light')}})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..650&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<link rel="preload" as="image" href="/img/shots/wikicatch.webp" type="image/webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://tallpoppystudio.com/#org","name":"Tall Poppy Studio","url":"https://tallpoppystudio.com/","logo":"https://tallpoppystudio.com/favicon.svg","email":"akos@tallpoppystudio.com","description":"An independent software studio in Budapest building native apps, web platforms and AI tooling.","founder":{"@id":"https://tallpoppystudio.com/about/#akos"},"address":{"@type":"PostalAddress","addressLocality":"Budapest","addressCountry":"HU"},"sameAs":["https://x.com/AkosKomuves","https://github.com/akoskomuves","https://www.linkedin.com/company/tall-poppy-studio/"]},{"@type":"Person","@id":"https://tallpoppystudio.com/about/#akos","name":"Akos Komuves","url":"https://tallpoppystudio.com/about/","jobTitle":"Founder and software engineer","worksFor":{"@id":"https://tallpoppystudio.com/#org"},"homeLocation":{"@type":"Place","name":"Budapest, Hungary"},"sameAs":["https://x.com/AkosKomuves","https://github.com/akoskomuves"]},{"@type":"WebSite","@id":"https://tallpoppystudio.com/#site","url":"https://tallpoppystudio.com/","name":"Tall Poppy Studio","publisher":{"@id":"https://tallpoppystudio.com/#org"}}]}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tall Poppy Studio — Akos Komuves, independent software studio</title>
+    <meta name="description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web platforms and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
+    <link rel="canonical" href="https://tallpoppystudio.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Tall Poppy Studio">
+    <meta property="og:title" content="Tall Poppy Studio — Akos Komuves, independent software studio">
+    <meta property="og:description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web platforms and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
+    <meta property="og:url" content="https://tallpoppystudio.com/">
+    <meta property="og:image" content="https://tallpoppystudio.com/og/home.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Tall Poppy Studio: native apps and AI tooling, by Akos Komuves">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tall Poppy Studio — Akos Komuves, independent software studio">
+    <meta name="twitter:description" content="Tall Poppy Studio is an independent software studio in Budapest run by Akos Komuves: native iOS and Mac apps, web platforms and AI tooling, including Kumano, WikiCatch, NoteHunter and MeritValue.">
+    <meta name="twitter:image" content="https://tallpoppystudio.com/og/home.png">
+    <meta name="twitter:creator" content="@AkosKomuves">
+
+    <!-- Organization schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Tall Poppy Studio",
+      "url": "https://tallpoppystudio.com/",
+      "logo": "https://tallpoppystudio.com/logo.png",
+      "description": "An independent software studio in Budapest building native apps, web platforms and AI tooling.",
+      "email": "akos@tallpoppystudio.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Akos Komuves"
+      },
+      "sameAs": [
+        "https://x.com/AkosKomuves",
+        "https://github.com/akoskomuves",
+        "https://www.linkedin.com/company/tall-poppy-studio/"
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
+    <script>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <style>
+        :root {
+            --bg: #FAF9F5;
+            --bg-hover: #F0EEE6;
+            --text: #141413;
+            --text-muted: #5E5D59;
+            --text-soft: #8a8882;
+            --accent: #D97757;
+            --accent-hover: #C96442;
+            --border: rgba(20, 20, 19, 0.1);
+            --icon-border: rgba(20, 20, 19, 0.12);
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+        }
+
+        [data-theme="dark"] {
+            --bg: #141413;
+            --bg-hover: #1f1f1d;
+            --text: #f0eee6;
+            --text-muted: #a5a39b;
+            --text-soft: #6e6c66;
+            --accent: #e08868;
+            --accent-hover: #f2a078;
+            --border: rgba(240, 238, 230, 0.1);
+            --icon-border: rgba(240, 238, 230, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .theme-toggle:hover { border-color: var(--accent); background: var(--bg-hover); }
+        .theme-toggle svg { width: 18px; height: 18px; color: var(--text-muted); transition: color 0.2s ease; }
+        .theme-toggle:hover svg { color: var(--accent); }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        /* Eyebrow */
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+        }
+
+        /* Hero */
+        .site-hero {
+            padding: 8rem 0 4rem;
+        }
+        .site-hero .eyebrow {
+            margin-bottom: 1.5rem;
+        }
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 7vw, 4.75rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.02;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-variation-settings: "opsz" 144;
+        }
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 44ch;
+            font-weight: 400;
+            line-height: 1.55;
+        }
+
+        /* Section header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .section-header .eyebrow {
+            white-space: nowrap;
+            color: var(--accent);
+        }
+        .section-header hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+        .section-intro {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            max-width: 24ch;
+            margin-bottom: 2.5rem;
+            font-variation-settings: "opsz" 72;
+        }
+        .practice-section { padding: 3rem 0 1rem; }
+        .clients-section { padding: 4rem 0 1rem; }
+        .work-section { padding: 4rem 0 2rem; }
+        .track-section { padding: 4rem 0 1rem; }
+        .about-section { padding: 4rem 0 2rem; }
+
+        /* Practice pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .pillar {
+            padding-right: 1.75rem;
+            border-right: 1px solid var(--border);
+        }
+        .pillar > * { padding-left: 1.75rem; }
+        .pillar:first-child > * { padding-left: 0; }
+        .pillar:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+        .pillar-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text);
+            margin: 0.75rem 0 0.625rem;
+            letter-spacing: -0.01em;
+            font-variation-settings: "opsz" 72;
+        }
+        .pillar-body {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Split rows — client work + track record */
+        .split-row {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+            gap: 2.5rem;
+            padding: 1.75rem 0;
+            border-top: 1px solid var(--border);
+        }
+        .split-row:last-child { border-bottom: 1px solid var(--border); }
+        .split-title {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+            margin-bottom: 0.375rem;
+            font-variation-settings: "opsz" 72;
+        }
+        .split-meta {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-soft);
+        }
+        .split-body {
+            font-size: 0.9375rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+        .split-scope {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-soft);
+            margin-top: 0.875rem;
+        }
+        /* Work grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .work-card {
+            padding: 2rem 1.75rem 2rem 0;
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            transition: background-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .work-card:nth-child(3n) {
+            border-right: none;
+            padding-right: 0;
+        }
+        .work-card:nth-child(1),
+        .work-card:nth-child(2),
+        .work-card:nth-child(3) {
+            border-top: none;
+        }
+        .work-card > * {
+            padding-left: 1.75rem;
+        }
+        .work-card:nth-child(3n+1) > * {
+            padding-left: 0;
+        }
+        .work-card:hover {
+            background: var(--bg-hover);
+        }
+        .work-card .eyebrow {
+            margin-bottom: 1.25rem;
+            color: var(--text-soft);
+        }
+        .work-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.375rem;
+            font-weight: 500;
+            color: var(--text);
+            margin: 1rem 0 0.5rem;
+            letter-spacing: -0.01em;
+            font-variation-settings: "opsz" 72;
+        }
+        .work-card-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+        .work-card-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.375rem;
+        }
+        .work-card-link {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            width: fit-content;
+        }
+        .work-card-link:hover {
+            color: var(--accent-hover);
+        }
+        .work-card-link .arrow {
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        .work-card-link:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        .work-card-title a { color: inherit; text-decoration: none; }
+        .chips { display: flex; flex-wrap: wrap; gap: 0.375rem; margin: 0 0 0.875rem; }
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.125rem 0.5rem;
+            line-height: 1.6;
+        }
+        .chip-live { color: #1d6b3a; border-color: rgba(29, 107, 58, 0.35); }
+        .chip-beta { color: #8a5a00; border-color: rgba(138, 90, 0, 0.35); }
+        .chip-archived { color: var(--text-muted); border-style: dashed; }
+        [data-theme="dark"] .chip-live { color: #7fd39b; border-color: rgba(127, 211, 155, 0.35); }
+        [data-theme="dark"] .chip-beta { color: #f0c36b; border-color: rgba(240, 195, 107, 0.35); }
+        .card-legal { font-size: 0.75rem; color: var(--text-soft); margin-top: 0.875rem; }
+        .card-legal a { color: var(--text-muted); text-decoration: none; }
+        .card-legal a:hover { text-decoration: underline; }
+
+        /* App icon */
+        .app-icon-wrap {
+            display: inline-block;
+            text-decoration: none;
+            line-height: 0;
+        }
+        .app-icon {
+            position: relative;
+            display: block;
+            width: 64px;
+            height: 64px;
+        }
+        .app-icon img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mask-image: var(--app-icon-mask);
+            -webkit-mask-image: var(--app-icon-mask);
+        }
+        .app-icon-border {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            color: var(--icon-border);
+        }
+
+        /* About */
+        .about-content {
+            max-width: 560px;
+            padding-top: 0.5rem;
+        }
+        .about-bio {
+            font-family: var(--font-serif);
+            font-size: 1.375rem;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.45;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.75rem;
+            font-variation-settings: "opsz" 72;
+        }
+        .about-bio em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        .about-contact {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+        }
+        .about-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .about-contact a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .social-link:hover { color: var(--accent); }
+        .social-link svg { width: 20px; height: 20px; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            font-size: 0.8125rem;
+            color: var(--text-soft);
+            margin-top: 4rem;
+        }
+        footer .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer .footer-row p {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .work-card {
+                padding-right: 1.5rem;
+            }
+            .work-card:nth-child(3n) {
+                border-right: 1px solid var(--border);
+                padding-right: 1.5rem;
+            }
+            .work-card:nth-child(2n) {
+                border-right: none;
+                padding-right: 0;
+            }
+            .work-card:nth-child(3) {
+                border-top: 1px solid var(--border);
+            }
+            .work-card > * {
+                padding-left: 1.5rem;
+            }
+            .work-card:nth-child(3n+1) > * {
+                padding-left: 1.5rem;
+            }
+            .work-card:nth-child(2n+1) > * {
+                padding-left: 0;
+            }
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+            .pillar {
+                border-right: none;
+                border-top: 1px solid var(--border);
+                padding: 1.5rem 0 0;
+            }
+            .pillar:first-child {
+                border-top: none;
+                padding-top: 0;
+            }
+            .pillar > *,
+            .pillar:first-child > * {
+                padding-left: 0;
+            }
+            .pillar-title { margin-top: 0.5rem; }
+        }
+        @media (max-width: 640px) {
+            .container { padding: 0 20px; }
+            .site-hero { padding: 6rem 0 2rem; }
+            .hero-title { font-size: clamp(2.5rem, 12vw, 3.5rem); }
+            .practice-section { padding: 2rem 0 1rem; }
+            .clients-section,
+            .track-section { padding: 3rem 0 1rem; }
+            .work-section { padding: 3rem 0 2rem; }
+            .section-intro { font-size: 1.25rem; max-width: none; }
+            .split-row {
+                grid-template-columns: 1fr;
+                gap: 0.875rem;
+            }
+            .work-grid { grid-template-columns: 1fr; }
+            .work-card,
+            .work-card:nth-child(3n),
+            .work-card:nth-child(2n) {
+                border-right: none !important;
+                padding: 2rem 0;
+            }
+            .work-card:nth-child(n) {
+                border-top: 1px solid var(--border);
+            }
+            .work-card:first-child {
+                border-top: none;
+            }
+            .work-card > *,
+            .work-card:nth-child(n) > * {
+                padding-left: 0 !important;
+            }
+            .section-header { gap: 1rem; margin-bottom: 2rem; }
+            .about-bio { font-size: 1.125rem; }
+            .theme-toggle { top: 1rem; right: 1rem; }
+        }
+    </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-head" id="site-head">
-  <div class="wrap">
-    <a class="wordmark" href="/" aria-label="Tall Poppy Studio, home"><svg class="poppy" aria-hidden="true" focusable="false" width="15" height="25" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 30.5c2.6-.6 4.6-2.4 5.3-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="7.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="16.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="7.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="16.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg><span>Tall Poppy Studio</span></a>
-    <nav class="nav" aria-label="Main"><a href="/apps/">Apps</a><a href="/work/">Work</a><a href="/open-source/">Open source</a><a href="/writing/">Writing</a><a href="/about/">About</a><a href="/now/">Now</a></nav>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M17.7 17.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M17.7 6.3l1.1-1.1"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 15A9.72 9.72 0 0 1 12 21.75 9.75 9.75 0 0 1 9 2.25 9.72 9.72 0 0 0 21.75 15z"/></svg></button>
-  </div>
-</header>
-<main id="main">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow accent reveal">Tall Poppy Studio · Budapest</p>
-      <h1 class="reveal">Native apps and AI tooling, built by one engineer.</h1>
-      <p class="lede reveal">Tall Poppy Studio is the independent software studio of Akos Komuves. It makes iPhone, Mac and web apps, open-source tools for building apps with AI agents, and software for clients.</p>
-      <div class="btns reveal" style="margin-top:2rem"><a class="btn btn-primary" href="/apps/">See the apps <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="/work/">Work with me</a></div>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="phone p1"><img src="/img/shots/meritvalue.webp" alt="" width="480" height="1043" decoding="async"></div>
-      <div class="phone p2"><img src="/img/shots/wikicatch.webp" alt="" width="480" height="1043" fetchpriority="high" decoding="async"></div>
-      <div class="phone p3"><img src="/img/shots/notehunter.webp" alt="" width="480" height="1043" decoding="async"></div>
-      <span class="hero-poppy"><svg class="poppy" aria-hidden="true" focusable="false" width="64" height="107" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 30.5c2.6-.6 4.6-2.4 5.3-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="7.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="16.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="7.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="16.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg></span>
-    </div>
-  </div>
-</section>
-<section class="proof" aria-label="The studio in numbers">
-  <div class="wrap"><ul class="proof-list"><li class="reveal"><span class="n">11</span><span class="l">apps live on the App Store</span></li><li class="reveal"><span class="n">6,000+</span><span class="l">US companies valued nightly by MeritValue</span></li><li class="reveal"><span class="n">0 → millions</span><span class="l">users on Tier’s first iOS app, built from scratch</span></li><li class="reveal"><span class="n">3,225</span><span class="l">npm downloads of appstoreconnect-mcp in the last 30 days</span></li></ul>
-  <p class="updated" style="margin-top:.75rem">As of 13 October 2026. Sources: App Store, meritvalue.com, npm.</p></div>
-</section>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M17.72 17.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M17.72 6.28l1.06-1.06"/>
+            <circle cx="12" cy="12" r="4"/>
+        </svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0 1 12 21.75 9.75 9.75 0 0 1 8.998 2.248 9.718 9.718 0 0 0 21.752 15.002z"/>
+        </svg>
+    </button>
 
-<section class="section" aria-labelledby="h-flagship">
-  <div class="wrap">
-    <div class="section-head"><h2 id="h-flagship">Flagship: Kumano</h2></div>
-    <div class="flagship reveal">
-      <span class="icon" style="--s:88px"><img src="/img/apps/kumano.webp" alt="" width="88" height="88" decoding="async"></span>
-      <div>
-        <ul class="chips" aria-label="Status and platforms"><li class="chip chip-beta">Beta</li><li class="chip">Dev tools</li><li class="chip">macOS</li></ul>
-        <p class="lede" style="margin-top:.875rem;color:var(--ink)"><strong>Kumano is the product-management layer for agentic development.</strong> A team writes down what it wants; Kumano turns it into a committed spec and plan, runs Claude Code through it with a person at every gate, reviews each change and ships it in one click.</p>
-        <div class="btns" style="margin-top:1.25rem"><a class="btn btn-primary" href="https://kumano.app">Visit kumano.app <span class="arr" aria-hidden="true">→</span></a><a class="btn btn-ghost" href="/kumano/">About Kumano</a></div>
-      </div>
-    </div>
-  </div>
-</section>
+    <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+        <defs>
+            <symbol id="app-icon-stroke" viewBox="0 0 230.5 230.5">
+                <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="1.4" stroke-width="1" d="M158.2 230H64.1a320 320 0 0 1-7-.1c-5 0-10-.5-15-1.3a50.8 50.8 0 0 1-14.4-4.8 48.2 48.2 0 0 1-21-21 50.9 50.9 0 0 1-4.8-14.4 100.7 100.7 0 0 1-1.3-15v-7l-.1-8.2V64.1a320 320 0 0 1 .1-7c0-5 .5-10 1.3-15a50.7 50.7 0 0 1 4.8-14.4 48.2 48.2 0 0 1 21-21 51 51 0 0 1 14.4-4.8c5-.8 10-1.2 15-1.3a320 320 0 0 1 7 0l8.2-.1h94.1a320 320 0 0 1 7 .1c5 0 10 .5 15 1.3a52 52 0 0 1 14.4 4.8 48.2 48.2 0 0 1 21 21 50.9 50.9 0 0 1 4.8 14.4c.8 5 1.2 10 1.3 15a320 320 0 0 1 .1 7v102.3l-.1 7c0 5-.5 10-1.3 15a50.7 50.7 0 0 1-4.8 14.4 48.2 48.2 0 0 1-21 21 50.8 50.8 0 0 1-14.4 4.8c-5 .8-10 1.2-15 1.3a320 320 0 0 1-7 0l-8.2.1z" clip-rule="evenodd" vector-effect="non-scaling-stroke"/>
+            </symbol>
+        </defs>
+    </svg>
 
-<section class="section" aria-labelledby="h-apps">
-  <div class="wrap">
-    <div class="section-head"><h2 id="h-apps">Apps</h2><a class="more" href="/apps/">All apps →</a></div>
-    <div class="featured"><article class="card fcard reveal" data-slug="wikicatch">
-  <div class="stage"><div class="phone"><img src="/img/shots/wikicatch.webp" alt="The WikiCatch map: fishing spots around Loch Lomond with a spot card" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/wikicatch.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/wikicatch/">WikiCatch</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Outdoors maps</li><li class="chip">iOS</li></ul>
-    <p class="tag">A fishing spots map with weather, solunar times and a catch log.</p>
-    <p class="links"><a href="https://wikicatch.app">wikicatch.app</a><a href="https://apps.apple.com/app/apple-store/id6758548046?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="/wikicatch/#support">Support</a><a href="https://wikicatch.app/privacy">Privacy</a></p>
-  </div>
-</article>
-<article class="card fcard reveal" data-slug="notehunter">
-  <div class="stage"><div class="phone"><img src="/img/shots/notehunter.webp" alt="NoteHunter ear training: a note plays and you pick its name" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/notehunter.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/notehunter/">NoteHunter</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Music</li><li class="chip">iOS</li><li class="chip">iPadOS</li><li class="chip">macOS</li></ul>
-    <p class="tag">Ear training and music theory for iPhone, iPad and Mac.</p>
-    <p class="links"><a href="https://apps.apple.com/app/apple-store/id1584522362?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="/notehunter/support/">Support</a><a href="/notehunter/privacy/">Privacy</a></p>
-  </div>
-</article>
-<article class="card fcard reveal" data-slug="meritvalue">
-  <div class="stage"><div class="phone"><img src="/img/shots/meritvalue.webp" alt="MeritValue on the web: the Apple Inc. valuation page with figures from the filings" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/meritvalue.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/meritvalue/">MeritValue</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Finance</li><li class="chip">Web</li><li class="chip">iOS</li><li class="chip">MCP</li></ul>
-    <p class="tag">Intrinsic stock valuations computed from SEC filings.</p>
-    <p class="links"><a href="https://www.meritvalue.com">meritvalue.com</a><a href="https://apps.apple.com/app/apple-store/id6795664202?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="https://www.meritvalue.com/support">Support</a><a href="https://www.meritvalue.com/privacy">Privacy</a></p>
-  </div>
-</article>
-<article class="card fcard reveal" data-slug="kufu">
-  <div class="stage"><div class="phone"><img src="/img/shots/kufu.webp" alt="The Kufu home screen: today’s goal, muscle recovery and the next workout" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/kufu.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/kufu/">Kufu</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Health &amp; fitness</li><li class="chip">iOS</li><li class="chip">watchOS</li></ul>
-    <p class="tag">Gym and calisthenics training with an on-device coach.</p>
-    <p class="links"><a href="https://kufuapp.com">kufuapp.com</a><a href="https://apps.apple.com/app/apple-store/id6760716466?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="/kufu/#support">Support</a><a href="https://kufuapp.com/privacy">Privacy</a></p>
-  </div>
-</article>
-<article class="card fcard reveal" data-slug="wikihunt">
-  <div class="stage"><div class="phone"><img src="/img/shots/wikihunt.webp" alt="The WikiHunt map near Bozeman with land ownership shading" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/wikihunt.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/wikihunt/">WikiHunt</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Outdoors maps</li><li class="chip">iOS</li></ul>
-    <p class="tag">GPS hunting maps with land ownership, wind and hunt forecasts.</p>
-    <p class="links"><a href="https://wikihunt.app">wikihunt.app</a><a href="https://apps.apple.com/app/apple-store/id6760655517?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="https://wikihunt.app/support">Support</a><a href="https://wikihunt.app/privacy">Privacy</a></p>
-  </div>
-</article>
-<article class="card fcard reveal" data-slug="matchframe">
-  <div class="stage"><div class="phone"><img src="/img/shots/matchframe.webp" alt="Matchframe’s strategy screen: profile photos scored by category" width="480" height="1043" loading="lazy" decoding="async"></div></div>
-  <div class="body">
-    <div class="card-top"><span class="icon" style="--s:48px"><img src="/img/apps/matchframe.webp" alt="" width="48" height="48" loading="lazy" decoding="async"></span><div><h3><a href="/matchframe/">Matchframe</a></h3></div></div>
-    <ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Photo</li><li class="chip">iOS</li></ul>
-    <p class="tag">A dating photo coach that scores your photos and fills the gaps.</p>
-    <p class="links"><a href="https://matchframe.app">matchframe.app</a><a href="https://apps.apple.com/app/apple-store/id6759290521?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store</a><a href="/matchframe/#support">Support</a><a href="https://matchframe.app/privacy">Privacy</a></p>
-  </div>
-</article></div>
-    <h3 class="eyebrow" style="margin:3rem 0 1rem">More from the studio</h3>
-    <ul class="list"><li><a class="row" href="/invention-capture/"><span class="icon" style="--s:40px"><img src="/img/apps/invention-capture.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">Invention Capture</span><br><span class="d">Talk through an invention; get a structured disclosure, on device.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Productivity</li><li class="chip">iOS</li></ul></a></li><li><a class="row" href="/kotone/"><span class="icon" style="--s:40px"><img src="/img/apps/kotone.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">Kotone</span><br><span class="d">A listening room for traditional music of Japan and China.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Culture</li><li class="chip">Web</li></ul></a></li><li><a class="row" href="/shrd/"><span class="icon" style="--s:40px"><img src="/img/apps/shrd.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">SHRD</span><br><span class="d">Share a taxi with riders heading your way and split the fare.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Travel</li><li class="chip">iOS</li><li class="chip">Android</li></ul></a></li><li><a class="row" href="/gaiwan/"><span class="icon" style="--s:40px"><img src="/img/apps/gaiwan.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">Gaiwan</span><br><span class="d">A gongfu tea timer and journal for the tea you drink.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Food &amp; drink</li><li class="chip">iOS</li></ul></a></li><li><a class="row" href="/tuuvi/"><span class="icon" style="--s:40px"><img src="/img/apps/tuuvi.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">Tuuvi</span><br><span class="d">Sun care for families: UV alerts and SPF reapply reminders.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-maintained">Maintained</li><li class="chip">Family</li><li class="chip">iOS</li></ul></a></li><li><a class="row" href="/sensorcam/"><span class="icon" style="--s:40px"><img src="/img/apps/sensorcam.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">SensorCam RAW</span><br><span class="d">Open gate video and 48 MP ProRAW on iPhone.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-beta">Beta</li><li class="chip">Photo &amp; video</li><li class="chip">iOS</li></ul></a></li><li><a class="row" href="/kranked/"><span class="icon" style="--s:40px"><img src="/img/apps/kranked.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><span class="t">Kranked</span><br><span class="d">App Store keyword rankings and research for indie developers.</span></span><ul class="chips" aria-label="Status and platforms"><li class="chip chip-live">Live</li><li class="chip">Dev tools</li><li class="chip">iOS</li></ul></a></li></ul>
-  </div>
-</section>
+    <header class="site-hero">
+        <div class="container">
+            <p class="eyebrow">An independent software studio</p>
+            <h1 class="hero-title">Tall Poppy Studio</h1>
+            <p class="hero-subtitle">Mobile apps, web platforms, AI systems. Built for the ones chasing extraordinary.</p>
+        </div>
+    </header>
 
-<section class="section" aria-labelledby="h-work">
-  <div class="wrap">
-    <div class="section-head"><h2 id="h-work">Client work</h2><a class="more" href="/work/">Work with me →</a></div>
-    <div class="rows"><div class="row2 reveal"><div><h3>Pharmacist rewards platform</h3><p class="meta">Pharmaceutical · under NDA</p></div><div><p>A sales-incentive product for a pharmaceutical company, built end to end: a pharmacist-facing mobile app that reads invoices with on-device capture and AI extraction to credit reward points, the backend that runs the points, catalogue and redemption logic, and a web dashboard the client uses to run campaigns and watch performance.</p><p class="scope">Android · iOS · Backend · Web dashboard · AI document extraction</p></div></div></div>
-    <div class="prev reveal"><p class="eyebrow">Previously</p><ul><li>Tier</li><li>ABC News</li><li>Queensland Police Service</li><li>Liven</li></ul></div>
-  </div>
-</section>
+    <main>
+        <div class="container">
+            <section class="practice-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">What we do</h2>
+                    <hr>
+                </div>
 
-<section class="section" aria-labelledby="h-oss">
-  <div class="wrap">
-    <div class="section-head"><h2 id="h-oss">Open source</h2><a class="more" href="/open-source/">All projects →</a></div>
-    <div class="grid"><article class="card reveal" id="app-appstoreconnect-mcp" data-slug="appstoreconnect-mcp" data-platforms="mcp" data-status="live">
-  <div class="card-top"><span class="icon icon-oss" aria-hidden="true">{ }</span><div><h3><a href="/open-source/#appstoreconnect-mcp">appstoreconnect-mcp</a></h3></div></div>
-  <ul class="chips"><li class="chip">Open source</li><li class="chip">MCP</li><li class="chip">MIT</li></ul>
-  <p class="tag">An MCP server for the App Store Connect API.</p>
-  <p class="links"><a href="https://www.npmjs.com/package/@akoskomuves/appstoreconnect-mcp">npm</a><a href="https://github.com/akoskomuves/appstoreconnect-mcp">GitHub</a></p>
-</article>
-<article class="card reveal" id="app-kranked-mcp" data-slug="kranked-mcp" data-platforms="mcp" data-status="live">
-  <div class="card-top"><span class="icon icon-oss" aria-hidden="true">{ }</span><div><h3><a href="/open-source/#kranked-mcp">kranked-mcp</a></h3></div></div>
-  <ul class="chips"><li class="chip">Open source</li><li class="chip">MCP</li><li class="chip">MIT</li></ul>
-  <p class="tag">App Store keyword research for your AI coding assistant.</p>
-  <p class="links"><a href="https://pypi.org/project/kranked-mcp/">PyPI</a><a href="https://github.com/akoskomuves/kranked">GitHub</a></p>
-</article>
-<article class="card reveal" id="app-aso-cross-localization" data-slug="aso-cross-localization" data-platforms="mcp" data-status="live">
-  <div class="card-top"><span class="icon icon-oss" aria-hidden="true">{ }</span><div><h3><a href="/open-source/#aso-cross-localization">aso-cross-localization</a></h3></div></div>
-  <ul class="chips"><li class="chip">Open source</li><li class="chip">Claude Code skill</li><li class="chip">MIT</li></ul>
-  <p class="tag">A Claude Code skill for App Store cross-localization.</p>
-  <p class="links"><a href="https://github.com/akoskomuves/aso-cross-localization">GitHub</a></p>
-</article></div>
-  </div>
-</section>
+                <div class="pillars">
+                    <div class="pillar">
+                        <p class="eyebrow">01</p>
+                        <h3 class="pillar-title">Mobile apps</h3>
+                        <p class="pillar-body">Native iOS and Android, from architecture to store release. Subscriptions, offline data, maps, health and connected hardware. Analytics and growth after launch.</p>
+                    </div>
+                    <div class="pillar">
+                        <p class="eyebrow">02</p>
+                        <h3 class="pillar-title">Web platforms</h3>
+                        <p class="pillar-body">Dashboards, admin tools and the backends behind them. Postgres, authentication and roles, data pipelines, reporting.</p>
+                    </div>
+                    <div class="pillar">
+                        <p class="eyebrow">03</p>
+                        <h3 class="pillar-title">AI systems</h3>
+                        <p class="pillar-body">Model integration inside real products: document extraction, agent tooling, MCP servers, and the review and planning layer around coding agents. Published open source on npm and GitHub.</p>
+                    </div>
+                </div>
+            </section>
 
-<section class="section" aria-labelledby="h-now">
-  <div class="wrap two-col">
-    <div class="reveal">
-      <div class="section-head"><h2 id="h-now">Now</h2></div>
-      <ul class="now-list"><li><strong>The studio’s websites.</strong> One support address, real screenshots, share cards and the footer badge across every product site, starting with this one.</li><li><strong>Kumano.</strong> Features and hardening on the macOS beta: native permission prompts, conversation persistence and a single engine for chat and guided work.</li><li><strong>Matchframe.</strong> The first weeks on the App Store after the 25 September launch.</li></ul>
-      <p class="small" style="margin-top:1rem"><a href="/now/">Everything I’m working on</a> · <span class="muted">updated 13 October 2026</span></p>
-    </div>
-    <div class="reveal" id="support">
-      <div class="section-head"><h2>Need help with an app?</h2></div>
-      <p class="muted" style="margin-bottom:1rem">Pick it here. A person answers every email.</p>
-      <ul class="support-icons"><li><a href="/wikicatch/#support" title="WikiCatch support"><span class="icon" style="--s:44px"><img src="/img/apps/wikicatch.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">WikiCatch support</span></a></li><li><a href="https://wikihunt.app/support" title="WikiHunt support"><span class="icon" style="--s:44px"><img src="/img/apps/wikihunt.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">WikiHunt support</span></a></li><li><a href="/notehunter/support/" title="NoteHunter support"><span class="icon" style="--s:44px"><img src="/img/apps/notehunter.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">NoteHunter support</span></a></li><li><a href="https://www.meritvalue.com/support" title="MeritValue support"><span class="icon" style="--s:44px"><img src="/img/apps/meritvalue.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">MeritValue support</span></a></li><li><a href="/kufu/#support" title="Kufu support"><span class="icon" style="--s:44px"><img src="/img/apps/kufu.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Kufu support</span></a></li><li><a href="/matchframe/#support" title="Matchframe support"><span class="icon" style="--s:44px"><img src="/img/apps/matchframe.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Matchframe support</span></a></li><li><a href="/kumano/#support" title="Kumano support"><span class="icon" style="--s:44px"><img src="/img/apps/kumano.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Kumano support</span></a></li><li><a href="/invention-capture/#support" title="Invention Capture support"><span class="icon" style="--s:44px"><img src="/img/apps/invention-capture.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Invention Capture support</span></a></li><li><a href="/kotone/#support" title="Kotone support"><span class="icon" style="--s:44px"><img src="/img/apps/kotone.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Kotone support</span></a></li><li><a href="https://www.shrdapp.com/support.html" title="SHRD support"><span class="icon" style="--s:44px"><img src="/img/apps/shrd.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">SHRD support</span></a></li><li><a href="/gaiwan/" title="Gaiwan support"><span class="icon" style="--s:44px"><img src="/img/apps/gaiwan.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Gaiwan support</span></a></li><li><a href="/tuuvi/" title="Tuuvi support"><span class="icon" style="--s:44px"><img src="/img/apps/tuuvi.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Tuuvi support</span></a></li><li><a href="/sensorcam/support/" title="SensorCam RAW support"><span class="icon" style="--s:44px"><img src="/img/apps/sensorcam.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">SensorCam RAW support</span></a></li><li><a href="/kranked/#support" title="Kranked support"><span class="icon" style="--s:44px"><img src="/img/apps/kranked.webp" alt="" width="44" height="44" loading="lazy" decoding="async"></span><span class="sr">Kranked support</span></a></li></ul>
-    </div>
-  </div>
-</section>
-</main>
-<footer class="site-foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="wordmark" href="/"><svg class="poppy" aria-hidden="true" focusable="false" width="15" height="25" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 30.5c2.6-.6 4.6-2.4 5.3-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="7.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="16.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="7.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="16.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg><span>Tall Poppy Studio</span></a>
-        <p class="muted small" style="margin-top:.875rem;max-width:30ch">An independent software studio in Budapest, run by Akos Komuves.</p>
-        <p class="small" style="margin-top:.875rem"><a href="mailto:akos@tallpoppystudio.com">akos@tallpoppystudio.com</a></p>
-      </div>
-      <div><h2>Apps</h2><ul><li><a href="/wikicatch/">WikiCatch</a></li><li><a href="/notehunter/">NoteHunter</a></li><li><a href="/meritvalue/">MeritValue</a></li><li><a href="/kumano/">Kumano</a></li><li><a href="/kufu/">Kufu</a></li><li><a href="/wikihunt/">WikiHunt</a></li><li><a href="/matchframe/">Matchframe</a></li><li><a href="/apps/">All apps</a></li></ul></div>
-      <div><h2>Support</h2><ul><li><a href="/notehunter/support/">NoteHunter support</a></li><li><a href="/wikicatch/#support">WikiCatch support</a></li><li><a href="https://wikihunt.app/support">WikiHunt support</a></li><li><a href="https://www.meritvalue.com/support">MeritValue support</a></li><li><a href="/kufu/#support">Kufu support</a></li><li><a href="/gaiwan/">Gaiwan support</a></li><li><a href="/apps/#support">Every app</a></li></ul></div>
-      <div><h2>Studio</h2><ul>
-        <li><a href="/about/">About</a></li><li><a href="/work/">Client work</a></li>
-        <li><a href="/open-source/">Open source</a></li><li><a href="/writing/">Writing</a></li><li><a href="/now/">Now</a></li>
-        <li><a href="/press/">Press kit</a></li><li><a href="/badge/">Studio badge</a></li>
-      </ul></div>
-    </div>
-    <div class="foot-base">
-      <span>&copy; 2026 Tall Poppy Studio &middot; Budapest, Hungary</span>
-      <span><a href="https://x.com/AkosKomuves">X</a> &middot; <a href="https://github.com/akoskomuves">GitHub</a> &middot; <a href="https://www.linkedin.com/company/tall-poppy-studio/">LinkedIn</a> &middot; <a href="/llms.txt">llms.txt</a></span>
-    </div>
-  </div>
-</footer>
-<script>
-(function(){
-  var d=document.documentElement,t=document.getElementById('theme-toggle');
-  if(t){t.setAttribute('aria-pressed',String(d.getAttribute('data-theme')==='dark'));t.addEventListener('click',function(){var dark=d.getAttribute('data-theme')!=='dark';d.setAttribute('data-theme',dark?'dark':'light');t.setAttribute('aria-pressed',String(dark));try{localStorage.setItem('theme',dark?'dark':'light')}catch(e){}});}
-  var h=document.getElementById('site-head');
-  if(h){var f=function(){h.classList.toggle('scrolled',scrollY>8)};addEventListener('scroll',f,{passive:true});f();}
-  var els=document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(function(e){e.classList.add('in')});return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-  els.forEach(function(e){io.observe(e)});
-})();
-</script>
+            <section class="clients-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">Flagship</h2>
+                    <hr>
+                </div>
 
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title"><a href="https://kumano.app" style="color: inherit; text-decoration: none;">Kumano <span class="arrow">→</span></a></h3>
+                        <p class="split-meta">Our own product · macOS beta</p>
+                    </div>
+                    <div>
+                        <p class="split-body">The product-management layer for agentic development, built on Claude Code and Anthropic's AI-Native SDLC Playbook. A team writes down what it wants; Kumano turns that into a committed intent, spec and plan, runs Claude Code through them with a person at every gate, reviews each change before anyone reads it, and ships it in one click. It also reviews the AI sessions themselves and coaches people to write clearer intent, because most wasted agent work starts with an unclear ask.</p>
+                        <p class="split-scope">macOS · Claude Code · Git &amp; GitHub · Prompt review</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="clients-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">Client work</h2>
+                    <hr>
+                </div>
+
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title">Pharmacist rewards platform</h3>
+                        <p class="split-meta">Pharmaceutical · under NDA</p>
+                    </div>
+                    <div>
+                        <p class="split-body">A sales-incentive product for a pharmaceutical company, built end to end: a pharmacist-facing mobile app that reads invoices with on-device capture and AI extraction to credit reward points, the backend that runs the points, catalogue and redemption logic, and a web dashboard the client uses to run campaigns and watch performance. In delivery, launching 2026, with the iOS app to follow.</p>
+                        <p class="split-scope">Android · iOS · Backend · Web dashboard · AI document extraction</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="work-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">Products</h2>
+                    <hr>
+                </div>
+
+                <div class="work-grid">
+<!-- build:products -->
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://wikicatch.app" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/wikicatch.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://wikicatch.app">WikiCatch</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Outdoors maps</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">A worldwide map of fishing spots, filterable by water type, with real-time weather and solunar data, a fish species database and catch logging with photos.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://wikicatch.app">Visit wikicatch.app <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6758548046?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a> · <a href="https://wikicatch.app/privacy">Privacy</a> · <a href="https://wikicatch.app/terms">Terms</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="/notehunter/" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/notehunter.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="/notehunter/">NoteHunter</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Music</span><span class="chip">iOS</span><span class="chip">iPadOS</span><span class="chip">macOS</span></p>
+                        <p class="work-card-desc">Ear training for notes, intervals and rhythm, sight reading, and a full music theory course, in one app for iPhone, iPad and Mac.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="/notehunter/">NoteHunter page <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id1584522362?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="/notehunter/support/">Support</a> · <a href="/notehunter/privacy/">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://www.meritvalue.com" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/meritvalue.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://www.meritvalue.com">MeritValue</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Finance</span><span class="chip">Web</span><span class="chip">iOS</span><span class="chip">MCP</span></p>
+                        <p class="work-card-desc">More than 6,000 US-listed companies valued nightly by a deterministic, version-controlled engine, with every figure traceable to the filing it came from. It asks whether a business is worth owning at a fair price, not whether the stock will go up.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://www.meritvalue.com">Visit meritvalue.com <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6795664202?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="https://www.meritvalue.com/support">Support</a> · <a href="https://www.meritvalue.com/privacy">Privacy</a> · <a href="https://www.meritvalue.com/terms">Terms</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://wikihunt.app" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/wikihunt.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://wikihunt.app">WikiHunt</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Outdoors maps</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">Hunting maps with public and private land boundaries, topographic layers, wind and game activity forecasts. Mark stands, trails and cameras, plan hunts and log harvests.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://wikihunt.app">Visit wikihunt.app <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6760655517?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="https://wikihunt.app/support">Support</a> · <a href="https://wikihunt.app/privacy">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://kufuapp.com" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/kufu.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://kufuapp.com">Kufu</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Health &amp; fitness</span><span class="chip">iOS</span><span class="chip">watchOS</span></p>
+                        <p class="work-card-desc">Strength cycles and calisthenics progressions in one plan, built on Apple Health with an Apple Watch app, nutrition logging from a photo, and a coach that runs on device with Apple Intelligence.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://kufuapp.com">Visit kufuapp.com <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6760716466?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a> · <a href="https://kufuapp.com/privacy">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://matchframe.app" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/matchframe.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://matchframe.app">Matchframe</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Photo</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">Scores your dating photos on lighting, composition, expression and clarity, builds a six-photo strategy for your profile, and generates the photo types you are missing.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://matchframe.app">Visit matchframe.app <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6759290521?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a> · <a href="https://matchframe.app/privacy">Privacy</a> · <a href="https://matchframe.app/terms">Terms</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://apps.apple.com/app/apple-store/id6778804651?pt=120404971&amp;ct=studio-home&amp;mt=8" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/invention-capture.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://apps.apple.com/app/apple-store/id6778804651?pt=120404971&amp;ct=studio-home&amp;mt=8">Invention Capture</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Productivity</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">Records an invention as it happens, by voice and photos, and turns it into a structured invention disclosure entirely on the iPhone. Exports PDF and JSON.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6778804651?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a> · <a href="https://github.com/akoskomuves/privacy-policies/wiki/Invention-Capture-Privacy-Policy">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://kotone.co" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/kotone.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://kotone.co">Kotone</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Culture</span><span class="chip">Web</span></p>
+                        <p class="work-card-desc">Koto, shakuhachi, gagaku, guqin, erhu and Peking opera. Every recording is public domain or Creative Commons, streamed from the Internet Archive and catalogued by hand with original-script titles, licence and source.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://kotone.co">Visit kotone.co <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://www.shrdapp.com" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/shrd.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://www.shrdapp.com">SHRD</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Travel</span><span class="chip">iOS</span><span class="chip">Android</span></p>
+                        <p class="work-card-desc">Find nearby riders going the same direction, chat to coordinate the ride, and get a fair, automatic cost breakdown.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://www.shrdapp.com">Visit shrdapp.com <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6755481627?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a><a class="work-card-link" href="https://play.google.com/store/apps/details?id=com.akoskomuves.taxibuddyandroid">Google Play <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="https://www.shrdapp.com/support.html">Support</a> · <a href="https://www.shrdapp.com/privacy.html">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="/gaiwan/" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/gaiwan.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="/gaiwan/">Gaiwan</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Food &amp; drink</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">What is in your tea cabinet, how each pot went and where the leaf came from. Data stays on the device, with no account.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="/gaiwan/">Gaiwan page <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6814422371?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="/gaiwan/">Support</a> · <a href="/gaiwan/privacy/">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="/tuuvi/" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/tuuvi.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="/tuuvi/">Tuuvi</a></h3>
+                        <p class="chips"><span class="chip chip-maintained">Maintained</span><span class="chip">Family</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">Up to eight family profiles with personalised SPF and reapply reminders based on real-time UV, age, skin type and daily routine. No tracking, no ads.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="/tuuvi/">Tuuvi page <span class="arrow">→</span></a><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6752693234?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="/tuuvi/">Support</a> · <a href="/tuuvi/privacy/">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="/sensorcam/support/" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/sensorcam.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="/sensorcam/support/">SensorCam RAW</a></h3>
+                        <p class="chips"><span class="chip chip-beta">Beta</span><span class="chip">Photo &amp; video</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">A camera app that records full-sensor open gate video to the iPhone itself and shoots 48 MP ProRAW stills, with manual controls, Log and LUTs. In TestFlight beta.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="/sensorcam/support/">Support page <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="/sensorcam/support/">Support</a> · <a href="/sensorcam/privacy/">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://apps.apple.com/app/apple-store/id6755593681?pt=120404971&amp;ct=studio-home&amp;mt=8" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/kranked.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://apps.apple.com/app/apple-store/id6755593681?pt=120404971&amp;ct=studio-home&amp;mt=8">Kranked</a></h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Dev tools</span><span class="chip">iOS</span></p>
+                        <p class="work-card-desc">Check where your app ranks for a keyword, find new keywords and watch competitors, using Apple’s own public data, without an expensive subscription.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://apps.apple.com/app/apple-store/id6755593681?pt=120404971&amp;ct=studio-home&amp;mt=8">App Store <span class="arrow">→</span></a></div>
+                        <p class="card-legal"><a href="mailto:akos@tallpoppystudio.com">Support</a> · <a href="https://github.com/akoskomuves/privacy-policies/wiki/Kranked-PP">Privacy</a></p>
+                    </article>
+
+                    <article class="work-card">
+                        <h3 class="work-card-title">appstoreconnect-mcp</h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Open source</span><span class="chip">MCP</span></p>
+                        <p class="work-card-desc">An MCP server for the App Store Connect API. Manage prices (including purchasing-power-parity rebalancing across territories), subscriptions and offers, TestFlight builds and app metadata from an AI coding agent.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://www.npmjs.com/package/@akoskomuves/appstoreconnect-mcp">npm <span class="arrow">→</span></a><a class="work-card-link" href="https://github.com/akoskomuves/appstoreconnect-mcp">GitHub <span class="arrow">→</span></a></div>
+                    </article>
+
+                    <article class="work-card">
+                        <h3 class="work-card-title">kranked-mcp</h3>
+                        <p class="chips"><span class="chip chip-live">Live</span><span class="chip">Open source</span><span class="chip">MCP</span></p>
+                        <p class="work-card-desc">App Store keyword research for your AI coding assistant. Ask Claude, Cursor or any MCP client how hard a keyword is, how popular it is and where your app ranks. Runs locally on Apple’s public endpoints, no account or API key.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://pypi.org/project/kranked-mcp/">PyPI <span class="arrow">→</span></a><a class="work-card-link" href="https://github.com/akoskomuves/kranked">GitHub <span class="arrow">→</span></a></div>
+                    </article>
+
+                    <article class="work-card">
+                        <a class="app-icon-wrap" href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608" tabindex="-1" aria-hidden="true">
+                            <span class="app-icon">
+                                <img src="img/apps/wikibubbles.webp" alt="" width="64" height="64" loading="lazy">
+                                <svg class="app-icon-border"><use href="#app-icon-stroke"/></svg>
+                            </span>
+                        </a>
+                        <h3 class="work-card-title"><a href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608">WikiBubbles</a></h3>
+                        <p class="chips"><span class="chip chip-archived">Archived</span><span class="chip">Outdoors maps</span><span class="chip">iOS</span><span class="chip">Android</span></p>
+                        <p class="work-card-desc">Dive and snorkel sites with marine life and conditions, and a dive log. Still on the App Store and Google Play; no longer in active development here.</p>
+                        <div class="work-card-links"><a class="work-card-link" href="https://apps.apple.com/us/app/wikibubbles-snorkeling-spots/id6744599608">Visit App Store <span class="arrow">→</span></a><a class="work-card-link" href="https://play.google.com/store/apps/details?id=com.familydog.wikibubbles">Google Play <span class="arrow">→</span></a></div>
+                        
+                    </article>
+<!-- /build:products -->
+                </div>
+            </section>
+
+            <section class="track-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">Previously</h2>
+                    <hr>
+                </div>
+                <p class="section-intro">Shipping with teams at —</p>
+
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title">Tier</h3>
+                        <p class="split-meta">Rider app</p>
+                    </div>
+                    <div>
+                        <p class="split-body">The first iOS app, built from zero and carried from pre-launch to millions of users as the mobility startup became European market leader. Real-time vehicle location and availability over MapKit, and expansion features across more than ten markets under hyper-growth.</p>
+                    </div>
+                </div>
+
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title">ABC News</h3>
+                        <p class="split-meta">Australia's most-read news app</p>
+                    </div>
+                    <div>
+                        <p class="split-body">Modernised the app that serves millions of daily readers, delivered with the agency Bilue. A server-driven content layout system let the editorial desk reconfigure the app without shipping a release.</p>
+                    </div>
+                </div>
+
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title">Queensland Police Service</h3>
+                        <p class="split-meta">Officer field app</p>
+                    </div>
+                    <div>
+                        <p class="split-body">A mission-critical iPad app used daily on the street for infringement recording and person and vehicle searches, delivered with the agency Concentrix Catalyst. High-security and regulated: strict testing, code review and audit standards.</p>
+                    </div>
+                </div>
+
+                <div class="split-row">
+                    <div>
+                        <h3 class="split-title">Liven</h3>
+                        <p class="split-meta">Consumer app &amp; merchant POS</p>
+                    </div>
+                    <div>
+                        <p class="split-body">The whole mobile surface of a hospitality fintech: the consumer app for discovery, deals and payments, plus the merchant iPad point of sale. Backend integration end to end, with offline resilience.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <div class="section-header">
+                    <h2 class="eyebrow">About</h2>
+                    <hr>
+                </div>
+                <div class="about-content">
+                    <p class="about-bio">Tall Poppy Studio is an independent software studio founded by <em>Akos Komuves</em>. Building custom software, AI systems, and native apps for teams and individuals.</p>
+                    <p class="about-contact">For project enquiries, <a href="mailto:akos@tallpoppystudio.com">akos@tallpoppystudio.com</a>.</p>
+                    <div class="social-links">
+                        <a href="mailto:akos@tallpoppystudio.com" class="social-link" aria-label="Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.953 5.774a1.125 1.125 0 0 1-1.094 0L2.25 6.75"/>
+                            </svg>
+                        </a>
+                        <a href="https://x.com/AkosKomuves" class="social-link" aria-label="X (Twitter)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 3.75 10.1 12m0 0 5.4 8.25M10.1 12 19.5 3.75M10.1 12 4.5 20.25"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/akoskomuves" class="social-link" aria-label="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tall-poppy-studio/" class="social-link" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v3"/>
+                                <rect x="2" y="9" width="4" height="12" rx="1"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <p>&copy; 2026 Tall Poppy Studio</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById('theme-toggle');
+            var html = document.documentElement;
+
+            function isDark() {
+                return html.getAttribute('data-theme') === 'dark';
+            }
+
+            function setTheme(dark) {
+                if (dark) {
+                    html.setAttribute('data-theme', 'dark');
+                } else {
+                    html.removeAttribute('data-theme');
+                }
+                localStorage.setItem('theme', dark ? 'dark' : 'light');
+            }
+
+            toggle.addEventListener('click', function() {
+                setTheme(!isDark());
+            });
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    setTheme(e.matches);
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

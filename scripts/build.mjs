@@ -78,7 +78,8 @@ write('apps/index.html', P.appsPage());
 write('work/index.html', P.workPage());
 const stats = await ossStats();
 write('open-source/index.html', P.ossPage(stats));
-write('index.html', P.homePage(stats));
+// The homepage is hand-written (the original simple design, restored
+// 2026-10-15); P.homePage() is kept but no longer written.
 write('about/index.html', P.aboutPage());
 write('now/index.html', P.nowPage());
 write('press/index.html', P.pressPage());
