@@ -36,7 +36,7 @@ export function clip(text, max) {
 export const hubHref = (a) => (a.hub === 'none' ? a.url : `/${a.slug}/`);
 export const iconImg = (a, size = 56) =>
   `<span class="icon" style="--s:${size}px"><img src="/img/apps/${a.slug}.webp" alt="" width="${size}" height="${size}"${size >= 88 ? "" : " loading=\"lazy\""} decoding="async"></span>`;
-export const chips = (a) => `<ul class="chips" aria-label="Status and platforms"><li class="chip chip-${a.status}">${STATUS[a.status]}</li><li class="chip">${esc(a.kind)}</li>${a.platforms.map((p) => `<li class="chip">${esc(p)}</li>`).join('')}</ul>`;
+export const chips = (a) => `<ul class="chips" aria-label="Category and platforms"><li class="chip">${esc(a.kind)}</li>${a.platforms.map((p) => `<li class="chip">${esc(p)}</li>`).join('')}</ul>`;
 const supportOf = (a) => a.support || `mailto:${EMAIL}?subject=${encodeURIComponent(a.name + ' support')}`;
 const platformAttr = (a) => a.platforms.map((p) => ({ iOS: 'iphone', iPadOS: 'iphone', watchOS: 'iphone', macOS: 'mac', Web: 'web', Android: 'android', MCP: 'mcp', 'Claude Code skill': 'mcp', 'Agent skills': 'mcp' }[p])).filter(Boolean).join(' ');
 const storeBadge = (a, ct) => `<a class="store-badge" href="${esc(appStoreUrl(a.appStoreId, ct))}">
