@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaiwan — Privacy Policy</title>
-<meta name="description" content="How Gaiwan handles your data: everything stays on your device, and nothing is collected or tracked.">
+<meta name="description" content="How Gaiwan handles your data: your records stay on your device, nothing is tracked, and only identification and summaries send anything off it.">
 <link rel="canonical" href="https://tallpoppystudio.com/gaiwan/privacy/">
 <meta name="theme-color" content="#FAF9F5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141413" media="(prefers-color-scheme: dark)">
@@ -26,32 +26,48 @@
 
 <h1>Privacy Policy</h1>
 <p class="lede">Gaiwan keeps your tea records on your device. It has no account system,
-no analytics and no tracking of any kind. Two things do leave your device, and both are
-described below.</p>
-<p class="updated">Last updated 23 September 2026</p>
+no analytics and no tracking of any kind. Two features send data off your device, and
+both are described below.</p>
+<p class="updated">Last updated 21 October 2026</p>
 
 <h2>What stays on your device</h2>
 <p>Your sessions, tasting notes, cabinet entries, teaware and photographs are stored
-locally on your iPhone and are not uploaded anywhere. They are included in your device
-backup if you back your iPhone up, and they are deleted with the app if you remove it.
-iCloud sync is switched off in this release.</p>
+locally on your iPhone. They are included in your device backup if you back your iPhone
+up, and they are deleted with the app if you remove it. iCloud sync is switched off in
+this release.</p>
+<p>The Apple Watch app is a remote for the timer on your iPhone. The two talk to each other
+directly through Apple's WatchConnectivity, so the tea names and timer state the watch
+shows never pass through any server.</p>
 
 <h2>What leaves your device, and when</h2>
-<p>One feature makes a network request: identifying a tea from a photograph. It runs only
-when you choose photos and tap Identify. Those images are sent to Google's Gemini API,
-which reads the packaging and returns what it can make out. Google processes the request
-under its own terms; Gaiwan sends nothing with it that identifies you — no account, no
-device identifier, no location, nothing else from your cabinet.</p>
-<p>If you never use that feature, Gaiwan makes no network requests at all beyond the map
-tiles Apple Maps loads to draw a map.</p>
+<p>Two features make requests to Gaiwan's own server, which forwards the content to
+Google's Gemini API and returns the answer. The server does not keep the photos or the
+text it forwards.</p>
+<p><strong>Identifying a tea or a piece of teaware.</strong> This runs only when you choose
+photos and tap Identify. The photos you chose are sent, with anything you typed into the
+hint field and the language your app is set to.</p>
+<p><strong>Written summaries</strong> (subscribers only). When you open a tea's card and
+its summary is missing or out of date, Gaiwan sends what the summary is written from:
+that tea's card (its name, category, origin, cultivar, harvest, vendor, amounts and your
+notes about it), its entry in Gaiwan's built-in catalogue, up to 30 of your sessions
+with that tea (date, leaf, water, temperature, steep times, the vessel's name, your rating
+and your tasting notes) and one of its photos, reduced in size. Locations and place names
+are not sent. The finished summary is stored on your device.</p>
+<p>With either request, the server also receives your anonymous subscription identifier
+(see below), to check with RevenueCat whether your subscription is active, and your IP
+address. Both are used to keep count of requests so the service cannot be abused; those
+counts are kept for at most a day and hold nothing else.</p>
+<p>Google processes the forwarded content under its own terms. If you use neither
+feature, Gaiwan makes no network requests beyond the map tiles Apple Maps loads to draw a
+map and the subscription check described below.</p>
 
 <h2>Subscriptions</h2>
-<p>Identification beyond the free allowance needs a subscription, which is handled by
-Apple and by RevenueCat, our payments provider. RevenueCat receives an anonymous
-identifier generated on your device and the fact that a purchase happened, so the app can
-tell whether your subscription is active. That identifier is not your name, your email or
-your Apple Account — it is a random string, and it is not connected to anything else about
-you.</p>
+<p>Identification beyond the free allowance, and written summaries, need a subscription,
+which is handled by Apple and by RevenueCat, our payments provider. RevenueCat receives an
+anonymous identifier generated on your device and the fact that a purchase happened, so
+the app can tell whether your subscription is active. That identifier is not your name,
+your email or your Apple Account. It is a random string, and it is not connected to
+anything else about you.</p>
 <p>Apple handles the payment itself. Gaiwan never sees your card details, and no payment
 information reaches us or our servers.</p>
 
@@ -64,7 +80,8 @@ the permission leaves every other part of the app working.</p>
 <h2>Camera and photo library</h2>
 <p>Gaiwan asks for the camera when you photograph a tea, its packaging or your teaware,
 and for your photo library when you attach an existing picture. It reads only the images
-you pick. Photos are stored with the record you attached them to and stay on the device.</p>
+you pick. Photos are stored with the record you attached them to, and leave the device
+only as described above.</p>
 
 <h2>What is not collected</h2>
 <ul>
@@ -72,9 +89,9 @@ you pick. Photos are stored with the record you attached them to and stay on the
 <li>No advertising, and no advertising identifiers</li>
 <li>No tracking across apps or websites, and no data brokers</li>
 <li>No accounts, no sign-in, and no names, email addresses or contact details</li>
-<li>Nothing is sold, and nothing is shared with anyone beyond the two services named
-above — Google for reading a photograph you chose to identify, and RevenueCat for knowing
-whether your subscription is active</li>
+<li>Nothing is sold, and nothing is shared beyond the services named above: Gaiwan's
+server (hosted by Vercel, with request counts kept by Upstash), Google for identification
+and summaries, and RevenueCat for knowing whether your subscription is active</li>
 </ul>
 
 <h2>Children</h2>

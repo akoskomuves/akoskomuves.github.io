@@ -25,7 +25,7 @@ const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 // campaign redirects (/notehunter/go/*) are deliberately left out.
 export const SITEMAP = [
   ['/', UPDATED, '1.0'],
-  ['/gaiwan/', UPDATED, '0.8'], ['/gaiwan/privacy/', '2026-09-22', '0.4'],
+  ['/gaiwan/', UPDATED, '0.8'], ['/gaiwan/privacy/', '2026-10-21', '0.4'],
   ['/tuuvi/', UPDATED, '0.7'], ['/tuuvi/privacy/', '2026-09-23', '0.4'],
   ['/notehunter/', UPDATED, '0.8'], ['/notehunter/support/', UPDATED, '0.5'],
   ['/notehunter/privacy/', UPDATED, '0.4'], ['/notehunter/beta/', UPDATED, '0.4'],
