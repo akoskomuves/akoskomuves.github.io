@@ -1,7 +1,6 @@
 // Every generated page except the homepage. Imported by build.mjs.
 import { APPS, OSS, GROUPS, STATUS, SITE, EMAIL, UPDATED, appStoreUrl } from './data.mjs';
 import { page, esc, abs, ORG, PERSON, breadcrumbs, supportHref } from './layout.mjs';
-import { glyph } from './brand.mjs';
 
 const UPDATED_HUMAN = new Date(UPDATED + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 export { UPDATED_HUMAN };
@@ -411,12 +410,12 @@ export function pressPage() {
       <dt>Contact</dt><dd><a href="mailto:${EMAIL}">${EMAIL}</a></dd>
     </dl>
     <h2>The mark</h2>
-    <p>A poppy on a tall stem, in poppy vermilion <code>#E5452B</code> on warm paper <code>#FBF6EE</code>.</p>
-    <div style="display:flex;gap:2rem;align-items:flex-end;margin:1.25rem 0 1rem">
-      ${glyph({ size: 48, title: 'Tall Poppy Studio mark' })}
-      <img src="/favicon.svg" alt="The poppy head on its own" width="56" height="56">
+    <p>The studio wordmark &ldquo;Tall Poppy <em style="color:var(--poppy)">Studio</em>&rdquo; set in Fraunces, with &ldquo;Studio&rdquo; in poppy vermilion <code>#E5452B</code> on warm paper <code>#FBF6EE</code>. The square app-icon version is a single &ldquo;T&rdquo; on the same poppy background.</p>
+    <div style="display:flex;gap:2rem;align-items:center;margin:1.25rem 0 1rem">
+      <img src="/press/tall-poppy-mark.svg" alt="Tall Poppy Studio wordmark" width="280" height="40">
+      <img src="/favicon.svg" alt="The square app-icon mark" width="56" height="56">
     </div>
-    <p><a href="/press/tall-poppy-mark.svg" download>Download the mark (SVG)</a> · <a href="/favicon.svg" download>Download the poppy head (SVG)</a> · <a href="/og/home.png">Share card (PNG, 1200 × 630)</a></p>
+    <p><a href="/press/tall-poppy-mark.svg" download>Download the wordmark (SVG)</a> · <a href="/favicon.svg" download>Download the square mark (SVG)</a> · <a href="/og/home.png">Share card (PNG, 1200 × 630)</a></p>
     <h2>App icons</h2>
   </section>
   <ul class="list">${icons}</ul>
@@ -424,7 +423,7 @@ export function pressPage() {
   return page({
     path: '/press/',
     title: 'Press kit | Tall Poppy Studio',
-    description: 'Press kit for Tall Poppy Studio: short and long boilerplate, studio facts, the poppy mark as SVG and the app icons.',
+    description: 'Press kit for Tall Poppy Studio: short and long boilerplate, studio facts, the wordmark as SVG and the app icons.',
     og: '/og/press.png',
     ld: [ORG, breadcrumbs([['Home', '/'], ['Press', '/press/']])],
     body,
@@ -504,9 +503,8 @@ Sitemap: ${SITE}/sitemap.xml
 
 // ---------------------------------------------------------------- /badge/
 // The footer badge product sites copy: "A Tall Poppy Studio app".
-// Inline SVG + text, inherits the product site's text colour; petals stay poppy.
-export const badgeSnippet = (slug = 'APP-SLUG') => `<a href="https://tallpoppystudio.com/apps/?ref=${slug}" class="tp-badge" style="display:inline-flex;align-items:center;gap:0.45em;font-size:13px;line-height:1.2;color:inherit;text-decoration:none">
-  <svg width="10" height="17" viewBox="0 0 24 40" aria-hidden="true" focusable="false"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="7.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="16.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="7.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="16.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg>
+// Text-only; inherits the product site's text colour.
+export const badgeSnippet = (slug = 'APP-SLUG') => `<a href="https://tallpoppystudio.com/apps/?ref=${slug}" class="tp-badge" style="display:inline-flex;align-items:center;font-size:13px;line-height:1.2;color:inherit;text-decoration:none">
   <span>A Tall Poppy Studio app</span>
 </a>`;
 
@@ -514,8 +512,7 @@ export function badgeSvg(dark = false) {
   const ink = dark ? '#F2EBE0' : '#1C1814', bg = dark ? '#17130F' : '#FBF6EE', line = dark ? 'rgba(242,235,224,0.22)' : 'rgba(28,24,20,0.18)';
   return `<svg xmlns="http://www.w3.org/2000/svg" width="196" height="32" viewBox="0 0 196 32" role="img" aria-label="A Tall Poppy Studio app">
   <rect x="0.5" y="0.5" width="195" height="31" rx="15.5" fill="${bg}" stroke="${line}"/>
-  <g transform="translate(12 5) scale(0.55)"><path d="M12 38.5V18" stroke="${ink}" stroke-width="1.7" stroke-linecap="round"/><circle cx="7.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="16.5" cy="8.5" r="5.5" fill="#E5452B"/><circle cx="7.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="16.5" cy="15.5" r="5.5" fill="#C9371F"/><circle cx="12" cy="12" r="2.6" fill="${ink}"/></g>
-  <text x="32" y="20.5" fill="${ink}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">A Tall Poppy Studio app</text>
+  <text x="98" y="20.5" text-anchor="middle" fill="${ink}" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="500">A Tall Poppy Studio app</text>
 </svg>
 `;
 }
@@ -536,7 +533,7 @@ export function badgePage() {
       <div style="padding:1rem 1.25rem;border-radius:12px;background:#0B1220;color:#E6EDF7">${badgeSnippet('wikicatch')}</div>
       <div style="padding:1rem 1.25rem;border-radius:12px;background:#F4EFE3;color:#3A2E1F">${badgeSnippet('wikicatch')}</div>
     </div>
-    <p>The text and stem take the colour of the surrounding footer text, so the badge sits in each product’s own palette. The petals stay poppy red.</p>
+    <p>The text takes the colour of the surrounding footer text, so the badge sits in each product’s own palette.</p>
     <h2>HTML snippet</h2>
     <p>Paste it at the end of the footer, after Support · Privacy · Terms. Replace <code>APP-SLUG</code> with the app’s slug.</p>
     <pre><code>${esc(badgeSnippet())}</code></pre>

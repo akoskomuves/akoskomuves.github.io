@@ -7,7 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { APPS } from './data.mjs';
-import { glyph, POPPY, POPPY_DEEP, INK, PAPER } from './brand.mjs';
+import { POPPY, INK, PAPER } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
@@ -33,11 +33,10 @@ p.sub{font-size:28px;color:#5E554B;margin-top:22px;max-width:34ch;line-height:1.
 .chip{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid #B42E1B;color:#B42E1B;border-radius:999px;padding:6px 14px;margin-top:22px}
 </style></head><body>${inner}<div class="rule"></div></body></html>`;
 
-const wordmark = `<div class="mark">${glyph({ size: 26, petal: POPPY, deep: POPPY_DEEP, ink: INK })}<span>Tall Poppy Studio</span></div>`;
-const bigGlyph = `<div class="big">${glyph({ size: 300, petal: POPPY, deep: POPPY_DEEP, ink: INK })}</div>`;
+const wordmark = `<div class="mark"><span>Tall Poppy <em style="font-style:normal;color:${POPPY}">Studio</em></span></div>`;
 
 function page(title, sub, extra = '') {
-  return base(`${bigGlyph}<div class="card">${wordmark}<h1>${esc(title)}</h1><p class="sub">${esc(sub)}</p>${extra}</div>`);
+  return base(`<div class="card">${wordmark}<h1>${esc(title)}</h1><p class="sub">${esc(sub)}</p>${extra}</div>`);
 }
 
 const iconStrip = (slugs) => `<div class="icons">${slugs.map((s) => `<img src="file://${ROOT}/img/apps/${s}.webp">`).join('')}</div>`;
@@ -56,7 +55,7 @@ export const CARDS = {
 };
 for (const a of APPS) {
   if (a.hub === 'none') continue;
-  CARDS[`app-${a.slug}`] = () => base(`${bigGlyph}<div class="card app">${wordmark}
+  CARDS[`app-${a.slug}`] = () => base(`<div class="card app">${wordmark}
     <img class="appicon" src="file://${ROOT}/img/apps/${a.slug}.webp">
     <h1>${esc(a.name)}</h1><p class="sub">${esc(a.tagline)}</p></div>`);
 }

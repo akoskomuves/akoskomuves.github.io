@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { APPS, OSS, SITE, UPDATED } from './data.mjs';
 import * as P from './pages.mjs';
 import * as W from './writing.mjs';
-import { glyph, head, POPPY, POPPY_DEEP, INK } from './brand.mjs';
+import { head, wordmark } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const write = (rel, content) => {
@@ -93,7 +93,7 @@ write('writing/index.html', W.indexPage(W.POSTS));
 write('llms.txt', P.llmsTxt(W.POSTS));
 write('robots.txt', P.robotsTxt());
 write('favicon.svg', head() + '\n');
-write('press/tall-poppy-mark.svg', glyph({ size: 240, petal: POPPY, deep: POPPY_DEEP, ink: INK }).replace(' aria-hidden="true" focusable="false"', '') + '\n');
+write('press/tall-poppy-mark.svg', wordmark() + '\n');
 
 buildSitemap([
   ['/apps/', UPDATED, '0.9'],
