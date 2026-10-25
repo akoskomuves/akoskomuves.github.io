@@ -67,7 +67,7 @@ export function header(current) {
   return `<a class="skip" href="#main">Skip to content</a>
 <header class="site-head" id="site-head">
   <div class="wrap">
-    <a class="wordmark" href="/" aria-label="Tall Poppy Studio, home">${glyph({ size: 15 })}<span>Tall Poppy Studio</span></a>
+    <a class="wordmark" href="/" aria-label="Tall Poppy Studio, home"><span>Tall Poppy Studio</span></a>
     <nav class="nav" aria-label="Main">${links}</nav>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">${SUN}${MOON}</button>
   </div>
@@ -85,7 +85,7 @@ export function footer() {
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="wordmark" href="/">${glyph({ size: 15 })}<span>Tall Poppy Studio</span></a>
+        <a class="wordmark" href="/"><span>Tall Poppy Studio</span></a>
         <p class="muted small" style="margin-top:.875rem;max-width:30ch">An independent software studio in Budapest, run by Akos Komuves.</p>
         <p class="small" style="margin-top:.875rem"><a href="mailto:${EMAIL}">${EMAIL}</a></p>
       </div>

@@ -37,7 +37,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head" id="site-head">
   <div class="wrap">
-    <a class="wordmark" href="/" aria-label="Tall Poppy Studio, home"><svg class="poppy" aria-hidden="true" focusable="false" width="15" height="25" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 30.5c2.6-.6 4.6-2.4 5.3-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="7.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="16.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="7.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="16.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg><span>Tall Poppy Studio</span></a>
+    <a class="wordmark" href="/" aria-label="Tall Poppy Studio, home"><span>Tall Poppy Studio</span></a>
     <nav class="nav" aria-label="Main"><a href="/apps/" aria-current="page">Apps</a><a href="/work/">Work</a><a href="/open-source/">Open source</a><a href="/writing/">Writing</a><a href="/about/">About</a><a href="/now/">Now</a></nav>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M17.7 17.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M17.7 6.3l1.1-1.1"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 15A9.72 9.72 0 0 1 12 21.75 9.75 9.75 0 0 1 9 2.25 9.72 9.72 0 0 0 21.75 15z"/></svg></button>
   </div>
@@ -50,7 +50,6 @@
     <h1>Every app from the studio.</h1>
     <p class="lede">Tall Poppy Studio makes 14 apps and 4 open-source developer tools: maps for anglers and hunters, music training, stock valuation, workouts, photo and camera apps, and tools for building apps with AI. All are made by Akos Komuves in Budapest.</p>
   </section>
-  <p class="ref-note" id="ref-note" hidden></p>
   <div class="filters" role="group" aria-label="Filter apps"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="iphone" aria-pressed="false">iPhone & Watch</button><button type="button" data-filter="mac" aria-pressed="false">Mac</button><button type="button" data-filter="web" aria-pressed="false">Web</button><button type="button" data-filter="android" aria-pressed="false">Android</button><button type="button" data-filter="mcp" aria-pressed="false">MCP & open source</button><button type="button" data-filter="beta" aria-pressed="false">In beta</button></div>
   <p class="small muted" id="filter-count" aria-live="polite" style="margin:-1rem 0 2rem"></p>
   <section class="group" data-group="outdoors" aria-labelledby="g-outdoors">
@@ -203,7 +202,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="wordmark" href="/"><svg class="poppy" aria-hidden="true" focusable="false" width="15" height="25" viewBox="0 0 24 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 38.5V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 30.5c2.6-.6 4.6-2.4 5.3-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="7.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="16.5" cy="8.5" r="5.5" fill="var(--poppy, #E5452B)"/><circle cx="7.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="16.5" cy="15.5" r="5.5" fill="var(--poppy-deep, #C9371F)"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></svg><span>Tall Poppy Studio</span></a>
+        <a class="wordmark" href="/"><span>Tall Poppy Studio</span></a>
         <p class="muted small" style="margin-top:.875rem;max-width:30ch">An independent software studio in Budapest, run by Akos Komuves.</p>
         <p class="small" style="margin-top:.875rem"><a href="mailto:akos@tallpoppystudio.com">akos@tallpoppystudio.com</a></p>
       </div>
@@ -235,7 +234,6 @@
 </script>
 <script>
 (function(){
-  var names={"wikicatch":"WikiCatch","wikihunt":"WikiHunt","notehunter":"NoteHunter","meritvalue":"MeritValue","kufu":"Kufu","matchframe":"Matchframe","kumano":"Kumano","invention-capture":"Invention Capture","kotone":"Kotone","shrd":"SHRD","gaiwan":"Gaiwan","tuuvi":"Tuuvi","sensorcam":"SensorCam RAW","kranked":"Kranked","wikibubbles":"WikiBubbles","appstoreconnect-mcp":"appstoreconnect-mcp","kranked-mcp":"kranked-mcp","aso-cross-localization":"aso-cross-localization","meritvalue-skills":"meritvalue-skills"};
   var cards=[].slice.call(document.querySelectorAll('.card[data-slug]'));
   var groups=[].slice.call(document.querySelectorAll('.group'));
   var btns=[].slice.call(document.querySelectorAll('[data-filter]'));
@@ -256,17 +254,6 @@
   })});
   var q;try{q=new URLSearchParams(location.search)}catch(e){q=null}
   if(q&&q.get('platform')&&document.querySelector('[data-filter="'+q.get('platform').replace(/[^a-z]/g,'')+'"]'))apply(q.get('platform').replace(/[^a-z]/g,''));
-  var ref=q&&q.get('ref');
-  if(ref){ref=ref.toLowerCase().replace(/[^a-z0-9-]/g,'');
-    var card=document.getElementById('app-'+ref);
-    if(card&&names[ref]){
-      if(card.hidden)apply('all');
-      card.classList.add('is-ref');
-      var note=document.getElementById('ref-note');
-      note.textContent='You came here from '+names[ref]+'. These are the other apps made by the same studio.';
-      note.hidden=false;
-    }
-  }
 })();
 </script>
 </body>

@@ -176,7 +176,6 @@ export function appsPage() {
     <h1>Every app from the studio.</h1>
     <p class="lede">Tall Poppy Studio makes ${live.length} apps and ${OSS.length} open-source developer tools: maps for anglers and hunters, music training, stock valuation, workouts, photo and camera apps, and tools for building apps with AI. All are made by Akos Komuves in Budapest.</p>
   </section>
-  <p class="ref-note" id="ref-note" hidden></p>
   <div class="filters" role="group" aria-label="Filter apps">${filters.map(([id, l], i) => `<button type="button" data-filter="${id}" aria-pressed="${i === 0}">${l}</button>`).join('')}</div>
   <p class="small muted" id="filter-count" aria-live="polite" style="margin:-1rem 0 2rem"></p>
   ${groups}
@@ -192,10 +191,8 @@ export function appsPage() {
   </section>
   <p class="updated">Statuses checked ${UPDATED_HUMAN} against the App Store.</p>
 </div>`;
-  const names = Object.fromEntries(APPS.concat(OSS).map((a) => [a.slug, a.name]));
   const js = `<script>
 (function(){
-  var names=${JSON.stringify(names)};
   var cards=[].slice.call(document.querySelectorAll('.card[data-slug]'));
   var groups=[].slice.call(document.querySelectorAll('.group'));
   var btns=[].slice.call(document.querySelectorAll('[data-filter]'));
@@ -216,17 +213,6 @@ export function appsPage() {
   })});
   var q;try{q=new URLSearchParams(location.search)}catch(e){q=null}
   if(q&&q.get('platform')&&document.querySelector('[data-filter="'+q.get('platform').replace(/[^a-z]/g,'')+'"]'))apply(q.get('platform').replace(/[^a-z]/g,''));
-  var ref=q&&q.get('ref');
-  if(ref){ref=ref.toLowerCase().replace(/[^a-z0-9-]/g,'');
-    var card=document.getElementById('app-'+ref);
-    if(card&&names[ref]){
-      if(card.hidden)apply('all');
-      card.classList.add('is-ref');
-      var note=document.getElementById('ref-note');
-      note.textContent='You came here from '+names[ref]+'. These are the other apps made by the same studio.';
-      note.hidden=false;
-    }
-  }
 })();
 </script>`;
   return page({
@@ -614,7 +600,6 @@ export function homePage(stats) {
       <div class="phone p1">${by.meritvalue.shot ? `<img src="/img/shots/meritvalue.webp" alt="" width="480" height="1043" decoding="async">` : ''}</div>
       <div class="phone p2"><img src="/img/shots/wikicatch.webp" alt="" width="480" height="1043" fetchpriority="high" decoding="async"></div>
       <div class="phone p3"><img src="/img/shots/notehunter.webp" alt="" width="480" height="1043" decoding="async"></div>
-      <span class="hero-poppy">${glyph({ size: 64 })}</span>
     </div>
   </div>
 </section>`;
