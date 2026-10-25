@@ -1,6 +1,5 @@
 // Shared page shell for the generated pages: <head>, header, footer, JSON-LD.
 import { APPS, SITE, EMAIL } from './data.mjs';
-import { glyph } from './brand.mjs';
 
 export const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export const abs = (path) => (/^https?:/.test(path) ? path : SITE + path);

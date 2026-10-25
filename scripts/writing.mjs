@@ -10,7 +10,7 @@ import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { SITE } from './data.mjs';
 import { page, esc, ORG, PERSON, breadcrumbs } from './layout.mjs';
-import { glyph, POPPY, POPPY_DEEP, INK, PAPER } from './brand.mjs';
+import { POPPY, INK, PAPER } from './brand.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STYLE = `<style>
@@ -166,9 +166,8 @@ body{background:${PAPER};color:${INK};font-family:Inter,sans-serif;position:rela
 .k{font-size:20px;letter-spacing:.14em;text-transform:uppercase;color:#B42E1B;margin-top:auto;font-weight:500}
 h1{font-family:Fraunces,serif;font-weight:560;font-size:64px;line-height:1.05;letter-spacing:-.02em;margin-top:18px;max-width:17ch}
 p{font-size:26px;color:#5E554B;margin-top:20px}.r{position:absolute;left:0;right:0;bottom:0;height:12px;background:${POPPY}}
-.g{position:absolute;right:70px;bottom:-30px}</style></head><body>
-<div class="g">${glyph({ size: 240, petal: POPPY, deep: POPPY_DEEP, ink: INK })}</div>
-<div class="c"><div class="m">${glyph({ size: 24, petal: POPPY, deep: POPPY_DEEP, ink: INK })}Tall Poppy Studio</div>
+.m em{font-style:normal;color:${POPPY}}</style></head><body>
+<div class="c"><div class="m">Tall Poppy <em>Studio</em></div>
 <p class="k">Writing</p><h1>${esc(title)}</h1><p>${esc(sub)}</p></div><div class="r"></div></body></html>`;
   const tmp = join(tmpdir(), `tp-w-${process.pid}.html`);
   writeFileSync(tmp, html);
