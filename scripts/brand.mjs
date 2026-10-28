@@ -1,7 +1,6 @@
 // Brand palette and marks for the studio site, as inline SVG strings.
 
 export const POPPY = '#E5452B';
-export const POPPY_DEEP = '#C9371F';
 export const INK = '#1C1814';
 export const PAPER = '#FBF6EE';
 
