@@ -25,10 +25,10 @@
 <a class="back" href="/gaiwan/">&larr; Gaiwan</a>
 
 <h1>Privacy Policy</h1>
-<p class="lede">Gaiwan keeps your tea records on your device. It has no account system,
-no analytics and no tracking of any kind. Two features send data off your device, and
-both are described below.</p>
-<p class="updated">Last updated 26 October 2026</p>
+<p class="lede">Gaiwan keeps your tea records on your device. It has no account system
+and no tracking of any kind. Two features send data off your device, and so, unless you
+switch it off, do anonymous usage counts and crash reports. All of it is described below.</p>
+<p class="updated">Last updated 6 November 2026</p>
 
 <h2>What stays on your device</h2>
 <p>Your sessions, tasting notes, cabinet entries, teaware and photographs are stored
@@ -92,15 +92,29 @@ and for your photo library when you attach an existing picture. It reads only th
 you pick. Photos are stored with the record you attached them to, and leave the device
 only as described above.</p>
 
+<h2>Usage counts and crash reports</h2>
+<p>To see which parts of Gaiwan are used and to fix what breaks, the app sends two kinds of
+anonymous reports. You can turn both off in Settings with "Share anonymous usage and crash
+reports", and nothing more is sent from then on.</p>
+<p><strong>Usage counts</strong> go to PostHog (EU servers). They record that something
+happened, such as a session started or finished, a tea identified, the subscription screen
+shown or a subscription bought, with a few plain details: the tea's category, the number of
+steeps, whether a photo was used. They never include a tea's name, your notes, photos,
+places or anything you typed. Each install gets a random identifier so that counts are not
+doubled; it is not connected to you, your Apple Account or your subscription.</p>
+<p><strong>Crash reports</strong> go to Sentry. When the app crashes or hangs, they record
+what the app was doing, the device model and system version, and how long things took. They
+are not linked to you and do not include your records.</p>
+
 <h2>What is not collected</h2>
 <ul>
-<li>No analytics, crash reporting or usage measurement</li>
 <li>No advertising, and no advertising identifiers</li>
 <li>No tracking across apps or websites, and no data brokers</li>
 <li>No accounts, no sign-in, and no names, email addresses or contact details</li>
 <li>Nothing is sold, and nothing is shared beyond the services named above: Gaiwan's
 server (hosted by Vercel, with request counts kept by Upstash), Google for identification
-and summaries, and RevenueCat for knowing whether your subscription is active</li>
+and summaries, RevenueCat for knowing whether your subscription is active, and PostHog and
+Sentry for the anonymous reports above</li>
 </ul>
 
 <h2>Children</h2>
