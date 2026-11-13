@@ -188,7 +188,6 @@ export function appsPage() {
     <p class="muted" style="margin:.5rem 0 1.5rem">Pick it here. Every app is supported by the person who made it: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
     <ul class="list">${supportList}</ul>
   </section>
-  <p class="updated">Statuses checked ${UPDATED_HUMAN} against the App Store.</p>
 </div>`;
   const js = `<script>
 (function(){
