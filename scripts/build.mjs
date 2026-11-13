@@ -1,7 +1,7 @@
 // Static build for tallpoppystudio.com. No dependencies: `node scripts/build.mjs`.
 // Writes generated HTML/text into the repo; the output is committed and served
 // as-is by GitHub Pages. Hand-written pages (notehunter, gaiwan, tuuvi,
-// sensorcam legal pages, trip) are never touched except the sitemap entry.
+// rubin legal pages, trip) are never touched except the sitemap entry.
 // Re-render share cards with `node scripts/og.mjs` after changing names or
 // taglines, and QR codes with scripts/qr.mjs after changing App Store ids.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -29,7 +29,7 @@ export const SITEMAP = [
   ['/tuuvi/', UPDATED, '0.7'], ['/tuuvi/privacy/', '2026-09-23', '0.4'],
   ['/notehunter/', UPDATED, '0.8'], ['/notehunter/support/', UPDATED, '0.5'],
   ['/notehunter/privacy/', UPDATED, '0.4'], ['/notehunter/beta/', UPDATED, '0.4'],
-  ['/sensorcam/support/', '2026-10-10', '0.5'], ['/sensorcam/privacy/', '2026-10-10', '0.4'],
+  ['/rubin/support/', '2026-11-13', '0.5'], ['/rubin/privacy/', '2026-11-13', '0.4'],
 ];
 
 function buildSitemap(extra = []) {
