@@ -152,7 +152,7 @@ export const APPS = [
     desc: 'A camera app that records open gate video from the whole sensor straight to the iPhone and takes 48 MP ProRAW and true RAW photos, with manual controls, Apple Log, LUTs and film looks you can see while you shoot.',
     url: '/rubin/', urlLabel: 'Rubin page', appStoreId: '6820894814',
     support: '/sensorcam/support/', privacy: '/sensorcam/privacy/',
-    shot: 'rubin', shotAlt: 'The Rubin viewfinder in photo mode with manual exposure controls',
+    shot: 'rubin', shotAlt: 'The Rubin viewfinder recording open gate video in Apple Log 2, with manual exposure controls',
     category: 'PhotographyApplication', noDomain: true,
   },
   {
