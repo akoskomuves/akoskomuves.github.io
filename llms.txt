@@ -28,7 +28,7 @@ Contact: akos@tallpoppystudio.com. Website: https://tallpoppystudio.com/. Last u
 - [SHRD](https://tallpoppystudio.com/shrd/): a taxi-sharing app for iPhone and Android. Live; iOS, Android. Website: https://www.shrdapp.com. App Store: https://apps.apple.com/app/id6755481627.
 - [Gaiwan](https://tallpoppystudio.com/gaiwan/): a gongfu tea timer and tea journal for iPhone. Live; iOS. App Store: https://apps.apple.com/app/id6814422371.
 - [Tuuvi](https://tallpoppystudio.com/tuuvi/): a sun care app for families on iPhone. Maintained; iOS. App Store: https://apps.apple.com/app/id6752693234.
-- [SensorCam RAW](https://tallpoppystudio.com/sensorcam/): an iPhone camera app for open gate video and 48 MP ProRAW photos. Beta; iOS.
+- [Rubin](https://tallpoppystudio.com/rubin/): an iPhone camera app for open gate video and RAW photos. Live; iOS. App Store: https://apps.apple.com/app/id6820894814.
 - [Kranked](https://tallpoppystudio.com/kranked/): an App Store keyword tracker for iPhone. Live; iOS. App Store: https://apps.apple.com/app/id6755593681.
 
 ## Open source
