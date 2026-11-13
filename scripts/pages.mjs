@@ -19,7 +19,7 @@ const WHAT = {
   shrd: 'a taxi-sharing app for iPhone and Android',
   gaiwan: 'a gongfu tea timer and tea journal for iPhone',
   tuuvi: 'a sun care app for families on iPhone',
-  sensorcam: 'an iPhone camera app for open gate video and 48 MP ProRAW photos',
+  rubin: 'an iPhone camera app for open gate video and RAW photos',
   kranked: 'an App Store keyword tracker for iPhone',
   wikibubbles: 'a dive and snorkel site app for iPhone and Android',
 };
